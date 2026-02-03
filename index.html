@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,68 +12,45 @@
       <div class="hero__content">
         <div class="hero__top">
           <p class="hero__eyebrow">Kaomoji · Aesthetic Symbols · ASCII Art</p>
-          <button id="themeToggle" class="theme-toggle" type="button">다크모드</button>
+          <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
         </div>
-        <h1>특수이모티콘 & 특수문자 컬렉션</h1>
+        <h1>Special Emoji & Symbols Collection</h1>
         <p class="hero__subtitle">
-          원하는 테마를 검색하고 클릭 한 번으로 복사하세요. 좌측 카테고리에서 바로 이동하고,
-          검색 결과가 어디에 적용되는지 한눈에 보이게 구성했습니다.
+          Pick a category and theme, then click to copy. Simple, clean, and easy to browse.
         </p>
-
-        <div class="search">
-          <input id="searchInput" type="text" placeholder="행복, 윙크, 별, 화살표, 고양이…" />
-          <button id="clearButton" type="button">지우기</button>
-        </div>
-        <p class="search-help">검색 예시: "별", "라인", "고양이", "하트"</p>
       </div>
       <div class="hero__card">
-        <div class="hero__card-title">오늘의 추천</div>
-        <div class="hero__card-emoji">〜𐭜 ᜊ°ཫ° )ᜊ</div>
-        <p class="hero__card-note">테마나 항목을 눌러 바로 복사</p>
+        <div class="hero__card-title">Today’s Pick</div>
+        <div class="hero__card-emoji" id="dailyPick">〜𐭜 ᜊ°ཫ° )ᜊ</div>
+        <p class="hero__card-note">Click any item to copy</p>
       </div>
     </header>
 
     <main class="content">
-      <aside class="sidebar">
-        <section class="sidebar__section">
-          <h3>이모지 카테고리</h3>
-          <div class="side-list" id="typeList"></div>
-          <div class="side-list" id="themeList"></div>
-        </section>
-        <section class="sidebar__section">
-          <h3>문자표 카테고리</h3>
-          <div class="side-list" id="blockList"></div>
-        </section>
-      </aside>
-
       <section class="content__main">
-        <div class="filter-bar">
-          <div id="filterBar" class="filter-bar__items"></div>
-          <button id="clearFilters" class="filter-bar__clear" type="button">필터 해제</button>
-        </div>
+        <nav class="tabs" id="typeTabs"></nav>
+        <div class="chips" id="themeChips"></div>
         <div class="meta" id="resultMeta"></div>
         <div class="recent" id="recentList"></div>
+
+        <section class="grid" id="resultGrid"></section>
 
         <section class="symbol-explorer" id="symbolExplorer">
           <div class="symbol-explorer__header">
             <div>
-              <h2>문자표 탐색</h2>
-              <p>특수문자를 블록별로 보고, 키워드로 검색할 수 있어요.</p>
-            </div>
-            <div class="symbol-explorer__controls">
-              <input id="symbolSearch" type="text" placeholder="예: 별, 하트, 화살표, ✦" />
+              <h2>Symbol Explorer</h2>
+              <p>Browse symbols by category and click to copy.</p>
             </div>
           </div>
+          <div class="symbol-tabs" id="blockTabs"></div>
           <div class="symbol-explorer__meta" id="symbolMeta"></div>
           <div class="symbol-grid" id="symbolGrid"></div>
         </section>
-
-        <section class="grid" id="resultGrid"></section>
       </section>
     </main>
   </div>
 
-  <div class="toast" id="toast">복사 완료!</div>
+  <div class="toast" id="toast">Copied!</div>
 
   <script defer src="/main.js"></script>
 </body>
