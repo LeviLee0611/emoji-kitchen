@@ -194,6 +194,30 @@ body.theme-dark {
   min-height: 320px;
 }
 
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 .tab {
   --tab-color: #64748b;
   --tab-rgb: 100, 116, 139;
@@ -269,6 +293,17 @@ body.theme-dark {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.theme-search {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 13px;
 }
 
 .chip {

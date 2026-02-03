@@ -979,6 +979,7 @@ const resultMeta = document.getElementById("resultMeta");
 const toast = document.getElementById("toast");
 const themeToggle = document.getElementById("themeToggle");
 const recentList = document.getElementById("recentList");
+const themeSearch = document.getElementById("themeSearch");
 const symbolExplorer = document.getElementById("symbolExplorer");
 const symbolGrid = document.getElementById("symbolGrid");
 const symbolMeta = document.getElementById("symbolMeta");
@@ -999,6 +1000,7 @@ const kitchenDownload = document.getElementById("kitchenDownload");
 const kitchenSwap = document.getElementById("kitchenSwap");
 const requestButton = document.getElementById("requestButton");
 const requestSection = document.getElementById("requestSection");
+const toTop = document.getElementById("toTop");
 
 const types = ["Kaomoji", "Aesthetic Symbols", "ASCII Art", "Emoji Kitchen"];
 const typeMeta = {
@@ -1010,6 +1012,7 @@ const typeMeta = {
 let activeType = "Kaomoji";
 let activeTheme = "All";
 let activeBlock = "all";
+let themeQuery = "";
 
 let kitchenCategoryA = "smileys";
 let kitchenCategoryB = "animals";
@@ -1153,9 +1156,17 @@ function renderTabs() {
 }
 
 function renderThemeChips(filteredData) {
-  const themes = ["All", ...new Set(filteredData.map((entry) => entry.theme))];
+  const rawThemes = Array.from(new Set(filteredData.map((entry) => entry.theme)));
+  const sortedThemes = rawThemes.sort((a, b) => a.localeCompare(b));
+  const themes = ["All", ...sortedThemes];
+  const query = themeQuery.trim().toLowerCase();
+  const visibleThemes = themes.filter((label) => {
+    if (label === "All") return true;
+    if (!query) return true;
+    return label.toLowerCase().startsWith(query);
+  });
   themeChips.innerHTML = "";
-  themes.forEach((label) => {
+  visibleThemes.forEach((label) => {
     const button = createChip(label, label === activeTheme, () => {
       activeTheme = label === activeTheme ? "All" : label;
       render();
@@ -1415,9 +1426,26 @@ themeToggle.addEventListener("click", () => {
   setTheme(isDark ? "light" : "dark");
 });
 
+themeSearch.addEventListener("input", (event) => {
+  themeQuery = event.target.value || "";
+  render();
+});
+
 requestButton.addEventListener("click", () => {
   if (requestSection) {
     requestSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
+
+toTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    toTop.classList.add("show");
+  } else {
+    toTop.classList.remove("show");
   }
 });
 
