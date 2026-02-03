@@ -1342,6 +1342,8 @@ const kitchenResultText = document.getElementById("kitchenResultText");
 const kitchenCopy = document.getElementById("kitchenCopy");
 const kitchenDownload = document.getElementById("kitchenDownload");
 const kitchenSwap = document.getElementById("kitchenSwap");
+const kitchenSuggestions = document.getElementById("kitchenSuggestions");
+const kitchenSuggestionsList = document.getElementById("kitchenSuggestionsList");
 const requestButton = document.getElementById("requestButton");
 const requestSection = document.getElementById("requestSection");
 const toTop = document.getElementById("toTop");
@@ -1363,6 +1365,7 @@ let kitchenCategoryB = "all";
 let selectedEmojiA = "😀";
 let selectedEmojiB = "🥳";
 let currentKitchenUrl = "";
+let lastKitchenTarget = "B";
 
 const RECENT_KEY = "recent-items";
 const MAX_RECENT = 10;
@@ -1652,6 +1655,7 @@ function renderKitchenGrid(target) {
   container.innerHTML = "";
   category.emojis.forEach((emoji) => {
     const button = createKitchenEmoji(emoji, emoji === selected, () => {
+      lastKitchenTarget = target;
       if (target === "A") {
         selectedEmojiA = emoji;
         kitchenEmojiA.textContent = emoji;
@@ -1679,6 +1683,39 @@ function buildKitchenUrl(emojiA, emojiB) {
   return `https://emojik.vercel.app/s/${encodedA}_${encodedB}?size=256`;
 }
 
+const kitchenSuggestionPool = [
+  "😀", "🥰", "😎", "🥳", "😭", "😡", "🤩", "😴", "✨", "💖",
+  "🔥", "🌈", "⭐", "🌸", "🍕", "🍔", "🎉", "💯", "🐶", "🐱",
+  "⚡", "🌙", "💫", "🪩", "🍓", "🧁", "🎨", "🎵", "⚽", "🏀"
+];
+
+function renderKitchenSuggestions() {
+  if (!kitchenSuggestions || !kitchenSuggestionsList) return;
+  const pool = kitchenSuggestionPool.filter(
+    (emoji) => emoji !== selectedEmojiA && emoji !== selectedEmojiB
+  );
+  const picks = [];
+  while (picks.length < 8 && pool.length > 0) {
+    const index = Math.floor(Math.random() * pool.length);
+    picks.push(pool.splice(index, 1)[0]);
+  }
+
+  kitchenSuggestionsList.innerHTML = "";
+  picks.forEach((emoji) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "kitchen__suggestion";
+    button.textContent = emoji;
+    button.addEventListener("click", () => {
+      selectedEmojiB = emoji;
+      kitchenEmojiB.textContent = emoji;
+      renderKitchenGrids();
+      updateKitchenResult();
+    });
+    kitchenSuggestionsList.appendChild(button);
+  });
+}
+
 function updateKitchenResult() {
   const url = buildKitchenUrl(selectedEmojiA, selectedEmojiB);
   currentKitchenUrl = url;
@@ -1686,15 +1723,19 @@ function updateKitchenResult() {
   kitchenResultImg.alt = `${selectedEmojiA} + ${selectedEmojiB}`;
   kitchenResultImg.classList.remove("hidden");
   kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
+  kitchenSuggestions.classList.add("hidden");
 
   kitchenResultImg.onload = () => {
     kitchenResultImg.classList.remove("hidden");
     kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
+    kitchenSuggestions.classList.add("hidden");
   };
 
   kitchenResultImg.onerror = () => {
     kitchenResultImg.classList.add("hidden");
     kitchenResultText.textContent = "No mashup found for this combo. Try another pair.";
+    renderKitchenSuggestions();
+    kitchenSuggestions.classList.remove("hidden");
   };
 }
 
