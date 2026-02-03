@@ -704,9 +704,7 @@ const data = [
     type: "ASCII Art",
     theme: "Bird",
     tags: ["bird"],
-    items: [
-      "(•ᴗ•)"
-    ]
+    items: ["(•ᴗ•)"]
   },
   {
     type: "ASCII Art",
@@ -792,6 +790,7 @@ const symbolMeta = document.getElementById("symbolMeta");
 const blockTabs = document.getElementById("blockTabs");
 const dailyPick = document.getElementById("dailyPick");
 
+const kitchen = document.getElementById("kitchen");
 const kitchenEmojiA = document.getElementById("kitchenEmojiA");
 const kitchenEmojiB = document.getElementById("kitchenEmojiB");
 const kitchenTabsA = document.getElementById("kitchenTabsA");
@@ -801,9 +800,10 @@ const kitchenGridB = document.getElementById("kitchenGridB");
 const kitchenResultImg = document.getElementById("kitchenResultImg");
 const kitchenResultText = document.getElementById("kitchenResultText");
 const kitchenCopy = document.getElementById("kitchenCopy");
+const kitchenDownload = document.getElementById("kitchenDownload");
 const kitchenSwap = document.getElementById("kitchenSwap");
 
-const types = ["All", "Kaomoji", "Aesthetic Symbols", "ASCII Art"];
+const types = ["All", "Kaomoji", "Aesthetic Symbols", "ASCII Art", "Emoji Kitchen"];
 let activeType = "All";
 let activeTheme = "All";
 let activeBlock = "all";
@@ -1122,13 +1122,16 @@ function updateKitchenResult() {
   currentKitchenUrl = url;
   kitchenResultImg.src = url;
   kitchenResultImg.alt = `${selectedEmojiA} + ${selectedEmojiB}`;
+  kitchenResultImg.classList.remove("hidden");
   kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
 
   kitchenResultImg.onload = () => {
+    kitchenResultImg.classList.remove("hidden");
     kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
   };
 
   kitchenResultImg.onerror = () => {
+    kitchenResultImg.classList.add("hidden");
     kitchenResultText.textContent = "No mashup found for this combo. Try another pair.";
   };
 }
@@ -1151,6 +1154,9 @@ function render() {
   renderSymbolTabs();
   renderSymbolExplorer();
 
+  kitchen.style.display = activeType === "Emoji Kitchen" || activeType === "All" ? "block" : "none";
+  resultGrid.style.display = activeType === "Emoji Kitchen" ? "none" : "grid";
+  themeChips.style.display = activeType === "Emoji Kitchen" ? "none" : "flex";
   symbolExplorer.style.display =
     activeType === "All" || activeType === "Aesthetic Symbols" ? "block" : "none";
 }
@@ -1186,6 +1192,18 @@ kitchenCopy.addEventListener("click", () => {
   if (currentKitchenUrl) {
     copyToClipboard(currentKitchenUrl, "Image URL copied!");
   }
+});
+
+kitchenDownload.addEventListener("click", () => {
+  if (!currentKitchenUrl) return;
+  const link = document.createElement("a");
+  link.href = currentKitchenUrl;
+  link.download = "emoji-kitchen.png";
+  link.target = "_blank";
+  link.rel = "noopener";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 });
 
 themeToggle.addEventListener("click", () => {
