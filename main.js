@@ -3,145 +3,468 @@ const data = [
     type: "Kaomoji",
     theme: "Happy",
     tags: ["happy", "joy", "smile"],
-    items: ["(*^▽^*)", "(＾▽＾)", "ヽ(•‿•)ノ", "(*¯︶¯*)", "(*^‿^*)", "(｡♥‿♥｡)", "(≧◡≦)", "(๑˃̵ᴗ˂̵)و", "(✿◠‿◠)", "(￣▽￣)b"]
+    items: [
+      "(*^▽^*)",
+      "(＾▽＾)",
+      "ヽ(•‿•)ノ",
+      "(*¯︶¯*)",
+      "(*^‿^*)",
+      "(｡♥‿♥｡)",
+      "(≧◡≦)",
+      "(๑˃̵ᴗ˂̵)و",
+      "(✿◠‿◠)",
+      "(￣▽￣)b",
+      "(•‿•)",
+      "(＾-＾)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Thinking",
     tags: ["thinking", "hmm"],
-    items: ["(￢_￢)", "(・_・ヾ", "(￣～￣;)", "(•ᴗ•?)", "(￣_￣ )", "(・_・?)", "(¬‿¬)", "(•́⍛•̀)", "(￣ヘ￣)", "(・・?)"]
+    items: [
+      "(￢_￢)",
+      "(・_・ヾ",
+      "(￣～￣;)",
+      "(•ᴗ•?)",
+      "(￣_￣ )",
+      "(・_・?)",
+      "(¬‿¬)",
+      "(•́⍛•̀)",
+      "(￣ヘ￣)",
+      "(・・?)",
+      "(￢‿￢ )",
+      "(≖_≖ )"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Excited",
     tags: ["excited", "yay", "party"],
-    items: ["٩(ˊᗜˋ*)و", "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "(≧▽≦)", "＼(＾▽＾)／", "(๑˃̵ᴗ˂̵)و", "ᕕ( ᐛ )ᕗ", "(☆▽☆)", "(✧ω✧)", "ヽ(>∀<)ﾉ", "(≧◡≦)"]
+    items: [
+      "٩(ˊᗜˋ*)و",
+      "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+      "(≧▽≦)",
+      "＼(＾▽＾)／",
+      "(๑˃̵ᴗ˂̵)و",
+      "ᕕ( ᐛ )ᕗ",
+      "(☆▽☆)",
+      "(✧ω✧)",
+      "ヽ(>∀<)ﾉ",
+      "(≧◡≦)",
+      "(ﾉ´ヮ´)ﾉ*: ･ﾟ",
+      "(｀･ω･´)ゞ"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Please",
     tags: ["please", "beg"],
-    items: ["(。-人-。)", "(ㅅ´ ˘ `)", "(。•́︿•̀。)", "( •́ ᵕ •̀ )", "(人´∀｀)｡ﾟ+", "(๑´ㅂ`๑)", "(｡-人-｡)", "(＞人＜;)", "(╥﹏╥)", "( •́⍛•̀)՞"]
+    items: [
+      "(。-人-。)",
+      "(ㅅ´ ˘ `)",
+      "(。•́︿•̀。)",
+      "( •́ ᵕ •̀ )",
+      "(人´∀｀)｡ﾟ+",
+      "(๑´ㅂ`๑)",
+      "(｡-人-｡)",
+      "(＞人＜;)",
+      "(╥﹏╥)",
+      "( •́⍛•̀)՞"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Weird",
     tags: ["weird", "confused", "odd"],
-    items: ["(⊙＿⊙')", "(°ロ°) !", "(⊙_☉)", "(ಠ_ಠ)", "(╯°□°）╯︵ ┻━┻", "(⊙ω⊙)", "(⊙﹏⊙)", "(⊙_◎)", "(☉_☉)", "(°∀°)b"]
+    items: [
+      "(⊙＿⊙')",
+      "(°ロ°) !",
+      "(⊙_☉)",
+      "(ಠ_ಠ)",
+      "(╯°□°）╯︵ ┻━┻",
+      "(⊙ω⊙)",
+      "(⊙﹏⊙)",
+      "(⊙_◎)",
+      "(☉_☉)",
+      "(°∀°)b",
+      "(ʘᗩʘ')",
+      "(☉_☉; )"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Wink",
     tags: ["wink"],
-    items: ["(^_~)", "(・ω<)", "(ˆ◡ˆ)~", "(^.~)", "(￣▽－)☆", "(•‿-)", "(¬‿¬)", "(^_-)", "(•◡-)", "(⌒_−)☆"]
+    items: [
+      "(^_~)",
+      "(・ω<)",
+      "(ˆ◡ˆ)~",
+      "(^.~)",
+      "(￣▽－)☆",
+      "(•‿-)",
+      "(¬‿¬)",
+      "(^_-)",
+      "(•◡-)",
+      "(⌒_−)☆"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Hello",
     tags: ["hello", "hi", "greet"],
-    items: ["(｡•‿•｡)ﾉ", "(￣▽￣)ノ", "( ´ ▽ ` )ﾉ", "( ^_^)／", "(っ´▽｀)っ", "(＾◇＾)ノ", "(・∀・)ノ", "( ^_^)／", "(・ω・)ノ", "(=ﾟωﾟ)ﾉ"]
+    items: [
+      "(｡•‿•｡)ﾉ",
+      "(￣▽￣)ノ",
+      "( ´ ▽ ` )ﾉ",
+      "( ^_^)／",
+      "(っ´▽｀)っ",
+      "(＾◇＾)ノ",
+      "(・∀・)ノ",
+      "(・ω・)ノ",
+      "(=ﾟωﾟ)ﾉ",
+      "(っ・ω・)っ"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Salute",
     tags: ["salute", "respect"],
-    items: ["(￣^￣)ゞ", "(｀_´)ゞ", "(￣-￣)ゞ", "(・_・)ゞ", "(｀・ω・´)ゞ", "(￣^￣ゞ)", "(￣^￣)ゞ", "(｡◕‿◕｡)ゞ", "(｀_´)ゞ", "(￣-￣)ゞ"]
+    items: [
+      "(￣^￣)ゞ",
+      "(｀_´)ゞ",
+      "(￣-￣)ゞ",
+      "(・_・)ゞ",
+      "(｀・ω・´)ゞ",
+      "(￣^￣ゞ)",
+      "(｡◕‿◕｡)ゞ",
+      "(•̀ᴗ•́)ゞ",
+      "(ง'̀-'́)ゞ",
+      "(｀･ω･´)ゞ"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Fear",
     tags: ["fear", "scared"],
-    items: ["(°ロ°)☝", "(⊙︿⊙)", "( ;ﾟДﾟ)", "(ㆆ_ㆆ)", "(╥﹏╥)", "(；゜ロ゜)", "(＞﹏＜)", "(⊙﹏⊙)", "(；ﾟДﾟ)", "(ಠ﹏ಠ)"]
+    items: [
+      "(°ロ°)☝",
+      "(⊙︿⊙)",
+      "( ;ﾟДﾟ)",
+      "(ㆆ_ㆆ)",
+      "(╥﹏╥)",
+      "(；゜ロ゜)",
+      "(＞﹏＜)",
+      "(⊙﹏⊙)",
+      "(；ﾟДﾟ)",
+      "(ಠ﹏ಠ)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Sad",
     tags: ["sad", "down", "cry"],
-    items: ["(；＿；)", "(╯︵╰,)", "(ಥ﹏ಥ)", "(｡•́︿•̀｡)", "(っ- ‸ - ς)", "(T_T)", "(；ω；)", "(╥_╥)", "(；へ：)", "(ಥ_ಥ)"]
+    items: [
+      "(；＿；)",
+      "(╯︵╰,)",
+      "(ಥ﹏ಥ)",
+      "(｡•́︿•̀｡)",
+      "(っ- ‸ - ς)",
+      "(T_T)",
+      "(；ω；)",
+      "(╥_╥)",
+      "(；へ：)",
+      "(ಥ_ಥ)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Thanks",
     tags: ["thanks", "grateful"],
-    items: ["(人´∀｀).☆.。.", "(｡•ㅅ•｡)♡", "( •̀ ω •́ )✧", "(⁎˃ ᵕ ˂⁎)", "(≧∇≦)b", "(人´▽`*)", "( ´ ▽ ` )ﾉ", "(๑˃ᴗ˂)ﻭ", "(｡◕‿◕｡)", "( •̀ᴗ•́ )"]
+    items: [
+      "(人´∀｀).☆.。.",
+      "(｡•ㅅ•｡)♡",
+      "( •̀ ω •́ )✧",
+      "(⁎˃ ᵕ ˂⁎)",
+      "(≧∇≦)b",
+      "(人´▽`*)",
+      "( ´ ▽ ` )ﾉ",
+      "(๑˃ᴗ˂)ﻭ",
+      "(｡◕‿◕｡)",
+      "( •̀ᴗ•́ )"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Angry",
     tags: ["angry", "mad"],
-    items: ["(＃`Д´)", "(╬ಠ益ಠ)", "(ꐦ°᷄д°᷅)", "(¬_¬)", "(ง'̀-'́)ง", "(•̀ᴗ•́)و ̑̑", "(怒)", "(งಠ_ಠ)ง", "(≧︿≦)", "(ಠ_ಠ)"]
+    items: [
+      "(＃`Д´)",
+      "(╬ಠ益ಠ)",
+      "(ꐦ°᷄д°᷅)",
+      "(¬_¬)",
+      "(ง'̀-'́)ง",
+      "(•̀ᴗ•́)و ̑̑",
+      "(怒)",
+      "(งಠ_ಠ)ง",
+      "(≧︿≦)",
+      "(ಠ_ಠ)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Love",
     tags: ["love", "heart"],
-    items: ["(｡♥‿♥｡)", "(っ˘з(˘⌣˘ )", "(ღ˘⌣˘ღ)", "(˘³˘)♥", "(づ￣ ³￣)づ", "(っ´▽｀)っ♡", "(｡♥‿♥｡)", "(｡♡‿♡｡)", "(ღ˘⌣˘ღ)", "(づ｡◕‿‿◕｡)づ"]
+    items: [
+      "(｡♥‿♥｡)",
+      "(っ˘з(˘⌣˘ )",
+      "(ღ˘⌣˘ღ)",
+      "(˘³˘)♥",
+      "(づ￣ ³￣)づ",
+      "(っ´▽｀)っ♡",
+      "(｡♡‿♡｡)",
+      "(づ｡◕‿‿◕｡)づ",
+      "(｡♥‿♥｡)",
+      "(づ￣ ³￣)づ"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Hungry",
     tags: ["hungry", "food"],
-    items: ["(๑>﹏<๑)", "(๑´ڡ`๑)", "(っ˘ڡ˘ς)", "(๑•́ ₃ •̀๑)", "(๑´ㅁ`๑)", "(๑¯﹃¯๑)", "(๑>ڡ<๑)", "(๑´ڡ`๑)", "(っ˘ڡ˘ς)", "(๑´ㅂ`๑)"]
+    items: [
+      "(๑>﹏<๑)",
+      "(๑´ڡ`๑)",
+      "(っ˘ڡ˘ς)",
+      "(๑•́ ₃ •̀๑)",
+      "(๑´ㅁ`๑)",
+      "(๑¯﹃¯๑)",
+      "(๑>ڡ<๑)",
+      "(๑´ڡ`๑)",
+      "(っ˘ڡ˘ς)",
+      "(๑´ㅂ`๑)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Sleepy",
     tags: ["sleepy", "tired"],
-    items: ["(－_－) zzZ", "(￣o￣) . z Z", "(ᴗ˳ᴗ)", "(u_u)zzZ", "(－.－)...", "(￣﹃￣)", "(－ω－) zzZ", "(￣ρ￣)..zzZZ", "(＿ ＿*) Z z z", "(ｰ｡ｰ)z"]
+    items: [
+      "(－_－) zzZ",
+      "(￣o￣) . z Z",
+      "(ᴗ˳ᴗ)",
+      "(u_u)zzZ",
+      "(－.－)...",
+      "(￣﹃￣)",
+      "(－ω－) zzZ",
+      "(￣ρ￣)..zzZZ",
+      "(＿ ＿*) Z z z",
+      "(ｰ｡ｰ)z"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Surprised",
     tags: ["surprise", "wow"],
-    items: ["(⊙o⊙)", "(ﾟﾛﾟ)", "(☉_☉)", "Σ(°△°|||)", "(◎_◎;)", "(°ー°〃)", "(ʘᗩʘ')", "(゜o゜)", "(⊙_⊙)", "(°□°)‼"]
+    items: [
+      "(⊙o⊙)",
+      "(ﾟﾛﾟ)",
+      "(☉_☉)",
+      "Σ(°△°|||)",
+      "(◎_◎;)",
+      "(°ー°〃)",
+      "(ʘᗩʘ')",
+      "(゜o゜)",
+      "(⊙_⊙)",
+      "(°□°)‼"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Cheer",
     tags: ["cheer", "fighting"],
-    items: ["(๑•̀ㅂ•́)و✧", "(ง •̀_•́)ง", "٩(๑`^´๑)۶", "(๑•̀ㅁ•́)و", "(๑•̀ㅂ•́)و", "(๑˃̵ᴗ˂̵)و", "(ง •̀_•́)ง", "(๑•̀ᴗ•́)و", "(ง'̀-'́)ง", "(๑˃̵ᴗ˂̵)و"]
+    items: [
+      "(๑•̀ㅂ•́)و✧",
+      "(ง •̀_•́)ง",
+      "٩(๑`^´๑)۶",
+      "(๑•̀ㅁ•́)و",
+      "(๑•̀ㅂ•́)و",
+      "(๑˃̵ᴗ˂̵)و",
+      "(ง •̀_•́)ง",
+      "(๑•̀ᴗ•́)و",
+      "(ง'̀-'́)ง",
+      "(๑˃̵ᴗ˂̵)و"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Hug",
     tags: ["hug"],
-    items: ["(っ´▽｀)っ", "(づ｡◕‿‿◕｡)づ", "(っ•̀ω•́)っ", "(づ￣ ³￣)づ", "(つ≧▽≦)つ", "(っ´▽｀)っ♡", "(つ✧ω✧)つ", "(づ｡◕‿‿◕｡)づ", "(っ^_^)っ", "(づ ￣ ³￣)づ"]
+    items: [
+      "(っ´▽｀)っ",
+      "(づ｡◕‿‿◕｡)づ",
+      "(っ•̀ω•́)っ",
+      "(づ￣ ³￣)づ",
+      "(つ≧▽≦)つ",
+      "(っ´▽｀)っ♡",
+      "(つ✧ω✧)つ",
+      "(づ｡◕‿‿◕｡)づ",
+      "(っ^_^)っ",
+      "(づ ￣ ³￣)づ"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Worried",
     tags: ["worried", "anxious"],
-    items: ["(；ﾟДﾟ)", "( ˃̣̣̥᷄⌓˂̣̣̥᷅ )", "(ಥ﹏ಥ)", "(；一_一)", "(・・;)", "( ˊᵕˋ )", "(；￣Д￣)", "(◎_◎;)", "(＠_＠;)", "(；´д｀)"]
+    items: [
+      "(；ﾟДﾟ)",
+      "( ˃̣̣̥᷄⌓˂̣̣̥᷅ )",
+      "(ಥ﹏ಥ)",
+      "(；一_一)",
+      "(・・;)",
+      "( ˊᵕˋ )",
+      "(；￣Д￣)",
+      "(◎_◎;)",
+      "(＠_＠;)",
+      "(；´д｀)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Study",
     tags: ["study", "work"],
-    items: ["_φ(･_･", "_〆(・∀・)", "_φ(□□ヘ)", "_〆(￣ー￣ )", "(๑•̀ㅂ•́)و✧", "(￣^￣)ゞ", "(・∀・)ノ", "(ง •̀_•́)ง", "(๑•̀ᴗ•́)و", "_φ(ﾟｰﾟ )"]
+    items: [
+      "_φ(･_･",
+      "_〆(・∀・)",
+      "_φ(□□ヘ)",
+      "_〆(￣ー￣ )",
+      "(๑•̀ㅂ•́)و✧",
+      "(￣^￣)ゞ",
+      "(・∀・)ノ",
+      "(ง •̀_•́)ง",
+      "(๑•̀ᴗ•́)و",
+      "_φ(ﾟｰﾟ )"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Stop",
     tags: ["stop", "no"],
-    items: ["(・｀ω´・)", "(｡•́︿•̀｡)", "(＞人＜;)", "(ノಠ益ಠ)ノ", "(╯︵╰,)", "(ಠ_ಠ)", "(ง'̀-'́)ง", "(￣へ￣)", "(｀△´＋)", "(¬_¬)"]
+    items: [
+      "(・｀ω´・)",
+      "(｡•́︿•̀｡)",
+      "(＞人＜;)",
+      "(ノಠ益ಠ)ノ",
+      "(╯︵╰,)",
+      "(ಠ_ಠ)",
+      "(ง'̀-'́)ง",
+      "(￣へ￣)",
+      "(｀△´＋)",
+      "(¬_¬)"
+    ]
   },
   {
     type: "Kaomoji",
     theme: "Confused",
     tags: ["confused", "dizzy"],
-    items: ["(◎_◎;)", "(＠_＠;)", "(⊙_◎)", "(°ー°〃)", "(・・?)", "(⊙﹏⊙)", "(・・;)", "(⊙.☉)", "(⊙_⊙;)", "(・_・?)"]
+    items: [
+      "(◎_◎;)",
+      "(＠_＠;)",
+      "(⊙_◎)",
+      "(°ー°〃)",
+      "(・・?)",
+      "(⊙﹏⊙)",
+      "(・・;)",
+      "(⊙.☉)",
+      "(⊙_⊙;)",
+      "(・_・?)"
+    ]
   },
   {
     type: "Kaomoji",
-    theme: "Crazy",
-    tags: ["crazy"],
-    items: ["(☉_☉)", "(⊙﹏⊙)", "(°∀°)b", "(ᗒᗣᗕ)՞", "(≧∇≦)", "(⊙ω⊙)", "(☆▽☆)", "(≧▽≦)", "(≧◡≦)", "(✧ω✧)"]
+    theme: "Cool",
+    tags: ["cool", "chill"],
+    items: [
+      "(⌐■_■)",
+      "(•_•)",
+      "( •_•)>⌐■-■",
+      "(⌐■_■)",
+      "(ง •̀_•́)ง",
+      "(｀-´)>",
+      "(￣ー￣)",
+      "(¬‿¬)",
+      "( ͡° ͜ʖ ͡°)",
+      "(￣^￣)b"
+    ]
   },
   {
     type: "Kaomoji",
-    theme: "Fight",
-    tags: ["fight", "challenge"],
-    items: ["(ง'̀-'́)ง", "(ง •̀_•́)ง", "( •̀ᴗ•́)و ̑̑", "(╬ಠ益ಠ)", "(ノಠ益ಠ)ノ", "(ง'̀-'́)ง", "(งಠ_ಠ)ง", "(ง •̀_•́)ง", "( •̀ᴗ•́)و", "(ง'̀-'́)ง"]
+    theme: "Shy",
+    tags: ["shy", "blush"],
+    items: [
+      "(⁄ ⁄•⁄ω⁄•⁄ ⁄)",
+      "(๑•́ ₃ •̀๑)",
+      "(｡•́︿•̀｡)",
+      "(⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)",
+      "(〃￣ω￣〃)",
+      "(ᵔ.ᵔ)",
+      "(￣﹏￣)",
+      "(o///o)",
+      "(✿´ ꒳ ` )",
+      "(•̀ᴗ•́)و"
+    ]
+  },
+  {
+    type: "Kaomoji",
+    theme: "Party",
+    tags: ["party", "celebrate"],
+    items: [
+      "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+      "(✧ω✧)",
+      "ヽ(>∀<)ﾉ",
+      "(ノ^_^)ノ",
+      "( ^_^)／",
+      "(っ´▽｀)っ",
+      "(☆▽☆)",
+      "(≧▽≦)",
+      "(ง •̀_•́)ง",
+      "(๑˃̵ᴗ˂̵)و"
+    ]
+  },
+  {
+    type: "Kaomoji",
+    theme: "Sick",
+    tags: ["sick", "ill"],
+    items: [
+      "(×_×)",
+      "(＠_＠)",
+      "(=_=)",
+      "(；´Д｀)",
+      "(￣﹃￣)",
+      "(x_x)",
+      "(×﹏×)",
+      "(✖╭╮✖)",
+      "(っ﹏-｡)",
+      "(＠﹏＠)"
+    ]
+  },
+  {
+    type: "Kaomoji",
+    theme: "Cry",
+    tags: ["cry", "tear"],
+    items: [
+      "(T_T)",
+      "(ಥ﹏ಥ)",
+      "(╥_╥)",
+      "(；ω；)",
+      "( ;_; )",
+      "(っ- ‸ - ς)",
+      "(ノД`)",
+      "(ಥ_ಥ)",
+      "(╥﹏╥)",
+      "(╯︵╰,)"
+    ]
   },
   {
     type: "Aesthetic Symbols",
@@ -222,39 +545,81 @@ const data = [
     items: [
       " /\\_/\\\n( o.o )\n > ^ <",
       " /\\_/\\\n( =^.^=)\n(\" ) (\" )",
-      " /\\_/\\\n( o.o )\n  > ^ <",
-      " /\\_/\\\n( ^.^ )\n  > ^ <",
-      " (=^･ω･^=)",
-      " (=^･ｪ･^=)",
-      " (=｀ω´=)",
-      " (=^‥^=)",
-      " (=ＴェＴ=)",
-      " (=^･^=)"
+      "(=^･ω･^=)",
+      "(=^･ｪ･^=)",
+      "(=｀ω´=)",
+      "(=^‥^=)",
+      "(=ＴェＴ=)",
+      "(=^･^=)",
+      "(=^･ω･^=)ﾉ",
+      "(=^･ω･^=)"
     ]
   },
   {
     type: "ASCII Art",
     theme: "Bear",
     tags: ["bear"],
-    items: [" ʕ•ᴥ•ʔ", "ʕᵔᴥᵔʔ", " ʕ•̀ ω •́ ʔ", " ʕ •ᴥ•ʔ", " ʕ·ᴥ·ʔ", " ʕ´•ᴥ•`ʔ", " ʕᵔᴥᵔʔ", " ʕ•ᴥ•ʔ", " ʕ·ᴥ·ʔ", " ʕ´•ᴥ•`ʔ"]
+    items: [
+      " ʕ•ᴥ•ʔ",
+      "ʕᵔᴥᵔʔ",
+      " ʕ•̀ ω •́ ʔ",
+      " ʕ •ᴥ•ʔ",
+      " ʕ·ᴥ·ʔ",
+      " ʕ´•ᴥ•`ʔ",
+      " ʕᵔᴥᵔʔ",
+      " ʕ•ᴥ•ʔ",
+      " ʕ·ᴥ·ʔ",
+      " ʕ´•ᴥ•`ʔ"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Rabbit",
     tags: ["rabbit"],
-    items: ["(\"(\"", "(\"ᵔㅅᵔ\")", "(\"ᵔ ᵔ\")", "(\"・x・\")", "(\"❛x❛\")", "(\"ᵕᴥᵕ\")", "(\"•ㅅ•\")", "(\"⌒∇⌒\")", "(\"˶ᵔ ᵕ ᵔ˶\")", "(\"｡•ㅅ•｡\")"]
+    items: [
+      "(\"(\"",
+      "(\"ᵔㅅᵔ\")",
+      "(\"ᵔ ᵔ\")",
+      "(\"・x・\")",
+      "(\"❛x❛\")",
+      "(\"ᵕᴥᵕ\")",
+      "(\"•ㅅ•\")",
+      "(\"⌒∇⌒\")",
+      "(\"˶ᵔ ᵕ ᵔ˶\")",
+      "(\"｡•ㅅ•｡\")"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Dog",
     tags: ["dog"],
-    items: ["/ \__", "(    @\\___", " /         O", "/   (_____ /", "/_____/   U", "U・ᴥ・U", "(ᵔᴥᵔ)", "(U・ᴥ・U)", "/\_/\\\n( o.o )\n > ^ <", "(❍ᴥ❍)ʋ"]
+    items: [
+      " / \__\n(    @\\___\n /         O\n/   (_____/\n/_____/   U",
+      "U・ᴥ・U",
+      "(ᵔᴥᵔ)",
+      "(U・ᴥ・U)",
+      "(❍ᴥ❍)ʋ",
+      "(ᵔᴥᵔ)ﾉ",
+      "(ᵔᴥᵔ)っ",
+      "(U＾ω＾)わん!",
+      "(ᵔᴥᵔ)ฅ",
+      "(U・x・U)"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Heart",
     tags: ["heart", "ascii"],
-    items: [" .:::.   .:::.", ":::::..:::::", " ::::::::::", "  ':::::'", "    ':'", "  **   **", " ******", "  ****", "   **", "    *"]
+    items: [
+      " .:::.   .:::.",
+      ":::::..:::::",
+      " ::::::::::",
+      "  ':::::'",
+      "    ':'",
+      "  **   **\n ******\n  ****\n   **\n    *",
+      "  .:::.\n :::::\n :::::\n  ':'",
+      " .:::.\n:::::::\n:::::::\n '::::'\n  ':'"
+    ]
   },
   {
     type: "ASCII Art",
@@ -263,7 +628,8 @@ const data = [
     items: [
       "  *  \n *** \n*****\n *** \n  *",
       "  .  \n .*. \n*****\n .*. \n  .",
-      "  +  \n +++ \n+++++\n +++ \n  +"
+      "  +  \n +++ \n+++++\n +++ \n  +",
+      "  ^  \n ^^^ \n^^^^^\n ^^^ \n  ^"
     ]
   },
   {
@@ -276,25 +642,98 @@ const data = [
     type: "ASCII Art",
     theme: "Kirby",
     tags: ["kirby"],
-    items: ["(っ◕‿◕)っ", "(｡◕‿◕｡)", "(◕‿◕✿)", "(づ｡◕‿‿◕｡)づ", "(✿◕‿◕)", "(◕‿◕)", "(ღ˘⌣˘ღ)", "(◕ᴗ◕✿)", "(◕‿◕)ﾉ", "(◕‿◕)♡"]
+    items: [
+      "(っ◕‿◕)っ",
+      "(｡◕‿◕｡)",
+      "(◕‿◕✿)",
+      "(づ｡◕‿‿◕｡)づ",
+      "(✿◕‿◕)",
+      "(◕‿◕)",
+      "(ღ˘⌣˘ღ)",
+      "(◕ᴗ◕✿)",
+      "(◕‿◕)ﾉ",
+      "(◕‿◕)♡"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Box Art",
     tags: ["box", "frame"],
-    items: ["┌────┐\n│    │\n└────┘", "╔════╗\n║    ║\n╚════╝", "┏━━━━┓\n┃    ┃\n┗━━━━┛", "┌─┐\n│ │\n└─┘", "╭────╮\n│    │\n╰────╯"]
+    items: [
+      "┌────┐\n│    │\n└────┘",
+      "╔════╗\n║    ║\n╚════╝",
+      "┏━━━━┓\n┃    ┃\n┗━━━━┛",
+      "┌─┐\n│ │\n└─┘",
+      "╭────╮\n│    │\n╰────╯",
+      "┏━━┓\n┃  ┃\n┗━━┛"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Cloud",
     tags: ["cloud"],
-    items: ["     .--.", "  .-(    ).", " (___.__)__)", " (  .-.  )", "(__(   )__)", "(    )", "(____)", " .--. ", "(    )", " '--' "]
+    items: [
+      "     .--.\n  .-(    ).\n (___.__)__)",
+      "   .--.\n .-(    ).\n(___.__)__)",
+      " .--.\n(    ).\n(____)"
+    ]
   },
   {
     type: "ASCII Art",
     theme: "Tree",
     tags: ["tree"],
-    items: ["  /\\", " /**\\", "/**o*\\", "  ||", "  ||", "  ||", "  ||", "  /\\\\", " /\\\\\\", "   ||"]
+    items: [
+      "   /\\\n  /**\\\n /****\\\n   ||",
+      "   /\\\n  /**\\\n /****\\\n   ||\n   ||",
+      "   /\\\n  /**\\\n /****\\\n   ||\n   ||\n   ||"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Fish",
+    tags: ["fish"],
+    items: [
+      "><(((('>",
+      "<`)))><",
+      "<º))))><",
+      "<(')))><",
+      "<°)))><"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Bird",
+    tags: ["bird"],
+    items: [
+      "(•ᴗ•)"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Car",
+    tags: ["car"],
+    items: [
+      "  ______\n /|_||_\\`.__\n(   _    _ _\\\n=`-(_)--(_)-'",
+      "   ______\n _/[] []\\_\n|_  _  _  _|"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "House",
+    tags: ["house"],
+    items: [
+      "   /\\\n  /  \\\n /____\\\n |    |\n |[]  |",
+      "   /\\\n  /  \\\n /____\\\n |    |\n |____|"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Coffee",
+    tags: ["coffee"],
+    items: [
+      " ( (\n  ) )\n ........\n |      |]\n \\      /\n  `----'",
+      "  )  (\n (    )\n  )  (\n (____)"
+    ]
   }
 ];
 
@@ -305,6 +744,39 @@ const symbolBlocks = [
   { id: "geom", label: "Shapes", ranges: [[0x25a0, 0x25ff]] },
   { id: "dingbats", label: "Decorative", ranges: [[0x2700, 0x27bf]] },
   { id: "misc", label: "Misc", ranges: [[0x2600, 0x26ff]] }
+];
+
+const kitchenCategories = [
+  {
+    id: "smileys",
+    label: "Smileys",
+    emojis: ["😀", "😁", "😂", "🤣", "😊", "😍", "🥰", "😘", "😎", "🤔", "😴", "😭", "😡", "🥳", "🤯", "🥶", "🥵", "😇", "🤩", "😬"]
+  },
+  {
+    id: "animals",
+    label: "Animals",
+    emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐵", "🐸", "🐤", "🦄", "🐙", "🐠", "🐳"]
+  },
+  {
+    id: "food",
+    label: "Food",
+    emojis: ["🍔", "🍟", "🍕", "🌭", "🥪", "🍣", "🍜", "🍙", "🍩", "🍪", "🍰", "🧁", "🍫", "🍎", "🍉", "🍓", "🍒", "🥑", "🌮", "🍳"]
+  },
+  {
+    id: "nature",
+    label: "Nature",
+    emojis: ["🌸", "🌼", "🌺", "🌻", "🌿", "🍀", "🌳", "🌵", "🍁", "🌈", "⚡", "🔥", "🌧", "❄", "☀", "🌙", "⭐", "🌊", "💧", "🌪"]
+  },
+  {
+    id: "objects",
+    label: "Objects",
+    emojis: ["🎈", "🎁", "🎮", "🎧", "📱", "💻", "📷", "🎨", "🧸", "🕶", "💡", "🔑", "⚽", "🏀", "🎸", "🪄", "🧪", "🧭", "🧩", "🪩"]
+  },
+  {
+    id: "symbols",
+    label: "Symbols",
+    emojis: ["❤️", "💔", "✨", "💯", "❗", "❓", "☮", "✝", "☪", "☯", "⚜", "♻", "✔", "✖", "⭕", "❌", "✅", "🔔", "💤", "⚠"]
+  }
 ];
 
 const typeTabs = document.getElementById("typeTabs");
@@ -320,18 +792,31 @@ const symbolMeta = document.getElementById("symbolMeta");
 const blockTabs = document.getElementById("blockTabs");
 const dailyPick = document.getElementById("dailyPick");
 
+const kitchenEmojiA = document.getElementById("kitchenEmojiA");
+const kitchenEmojiB = document.getElementById("kitchenEmojiB");
+const kitchenTabsA = document.getElementById("kitchenTabsA");
+const kitchenTabsB = document.getElementById("kitchenTabsB");
+const kitchenGridA = document.getElementById("kitchenGridA");
+const kitchenGridB = document.getElementById("kitchenGridB");
+const kitchenResultImg = document.getElementById("kitchenResultImg");
+const kitchenResultText = document.getElementById("kitchenResultText");
+const kitchenCopy = document.getElementById("kitchenCopy");
+const kitchenSwap = document.getElementById("kitchenSwap");
+
 const types = ["All", "Kaomoji", "Aesthetic Symbols", "ASCII Art"];
 let activeType = "All";
 let activeTheme = "All";
 let activeBlock = "all";
 
+let kitchenCategoryA = "smileys";
+let kitchenCategoryB = "animals";
+let selectedEmojiA = "😀";
+let selectedEmojiB = "🥳";
+let currentKitchenUrl = "";
+
 const RECENT_KEY = "recent-items";
 const MAX_RECENT = 10;
 let recentItems = [];
-
-function normalize(text) {
-  return text.toLowerCase();
-}
 
 function createTab(label, isActive, onClick) {
   const button = document.createElement("button");
@@ -360,6 +845,24 @@ function createSymbolTab(label, isActive, onClick) {
   return button;
 }
 
+function createKitchenTab(label, isActive, onClick) {
+  const button = document.createElement("button");
+  button.className = "kitchen__tab" + (isActive ? " active" : "");
+  button.type = "button";
+  button.textContent = label;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function createKitchenEmoji(emoji, isActive, onClick) {
+  const button = document.createElement("button");
+  button.className = "kitchen__emoji" + (isActive ? " active" : "");
+  button.type = "button";
+  button.textContent = emoji;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
 function showToast(message = "Copied!") {
   toast.textContent = message;
   toast.classList.add("show");
@@ -370,7 +873,9 @@ function copyToClipboard(text, message) {
   navigator.clipboard.writeText(text).then(() => showToast(message)).catch(() => {
     showToast(message);
   });
-  addRecentItem(text);
+  if (text) {
+    addRecentItem(text);
+  }
 }
 
 function addRecentItem(text) {
@@ -554,6 +1059,80 @@ function setDailyPick() {
   dailyPick.textContent = allItems[index];
 }
 
+function getKitchenCategory(id) {
+  return kitchenCategories.find((category) => category.id === id) || kitchenCategories[0];
+}
+
+function renderKitchenTabs(target) {
+  const container = target === "A" ? kitchenTabsA : kitchenTabsB;
+  const active = target === "A" ? kitchenCategoryA : kitchenCategoryB;
+  container.innerHTML = "";
+
+  kitchenCategories.forEach((category) => {
+    const button = createKitchenTab(category.label, category.id === active, () => {
+      if (target === "A") {
+        kitchenCategoryA = category.id;
+      } else {
+        kitchenCategoryB = category.id;
+      }
+      renderKitchenGrids();
+    });
+    container.appendChild(button);
+  });
+}
+
+function renderKitchenGrid(target) {
+  const container = target === "A" ? kitchenGridA : kitchenGridB;
+  const activeCategory = target === "A" ? kitchenCategoryA : kitchenCategoryB;
+  const selected = target === "A" ? selectedEmojiA : selectedEmojiB;
+  const category = getKitchenCategory(activeCategory);
+
+  container.innerHTML = "";
+  category.emojis.forEach((emoji) => {
+    const button = createKitchenEmoji(emoji, emoji === selected, () => {
+      if (target === "A") {
+        selectedEmojiA = emoji;
+        kitchenEmojiA.textContent = emoji;
+      } else {
+        selectedEmojiB = emoji;
+        kitchenEmojiB.textContent = emoji;
+      }
+      renderKitchenGrids();
+      updateKitchenResult();
+    });
+    container.appendChild(button);
+  });
+}
+
+function renderKitchenGrids() {
+  renderKitchenTabs("A");
+  renderKitchenTabs("B");
+  renderKitchenGrid("A");
+  renderKitchenGrid("B");
+}
+
+function buildKitchenUrl(emojiA, emojiB) {
+  const encodedA = encodeURIComponent(emojiA);
+  const encodedB = encodeURIComponent(emojiB);
+  return `https://emojik.vercel.app/s/${encodedA}_${encodedB}?size=256`;
+}
+
+function updateKitchenResult() {
+  const url = buildKitchenUrl(selectedEmojiA, selectedEmojiB);
+  currentKitchenUrl = url;
+  kitchenResultImg.src = url;
+  kitchenResultImg.alt = `${selectedEmojiA} + ${selectedEmojiB}`;
+  kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
+
+  kitchenResultImg.onload = () => {
+    kitchenResultText.textContent = `${selectedEmojiA} + ${selectedEmojiB}`;
+  };
+
+  kitchenResultImg.onerror = () => {
+    kitchenResultText.textContent = "No mashup found for this combo. Try another pair.";
+  };
+}
+
 function render() {
   renderTabs();
 
@@ -593,7 +1172,30 @@ if (savedRecent) {
   }
 }
 
+kitchenSwap.addEventListener("click", () => {
+  const temp = selectedEmojiA;
+  selectedEmojiA = selectedEmojiB;
+  selectedEmojiB = temp;
+  kitchenEmojiA.textContent = selectedEmojiA;
+  kitchenEmojiB.textContent = selectedEmojiB;
+  updateKitchenResult();
+  renderKitchenGrids();
+});
+
+kitchenCopy.addEventListener("click", () => {
+  if (currentKitchenUrl) {
+    copyToClipboard(currentKitchenUrl, "Image URL copied!");
+  }
+});
+
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("theme-dark");
+  setTheme(isDark ? "light" : "dark");
+});
+
 setTheme(savedTheme);
 renderRecent();
 setDailyPick();
 render();
+renderKitchenGrids();
+updateKitchenResult();

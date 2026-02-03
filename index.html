@@ -11,12 +11,12 @@
     <header class="hero">
       <div class="hero__content">
         <div class="hero__top">
-          <p class="hero__eyebrow">Kaomoji · Aesthetic Symbols · ASCII Art</p>
+          <p class="hero__eyebrow">Kaomoji · Aesthetic Symbols · ASCII Art · Emoji Kitchen</p>
           <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
         </div>
         <h1>Special Emoji & Symbols Collection</h1>
         <p class="hero__subtitle">
-          Pick a category and theme, then click to copy. Simple, clean, and easy to browse.
+          Pick a category and theme, then click to copy. Explore Emoji Kitchen mashups and symbol grids below.
         </p>
       </div>
       <div class="hero__card">
@@ -32,6 +32,38 @@
         <div class="chips" id="themeChips"></div>
         <div class="meta" id="resultMeta"></div>
         <div class="recent" id="recentList"></div>
+
+        <section class="kitchen" id="kitchen">
+          <div class="kitchen__header">
+            <div>
+              <h2>Emoji Kitchen</h2>
+              <p>Pick two emojis and get a real mashup sticker.</p>
+            </div>
+            <button id="kitchenSwap" class="kitchen__swap" type="button">Swap</button>
+          </div>
+          <div class="kitchen__selectors">
+            <div class="kitchen__panel">
+              <div class="kitchen__label">Emoji 1</div>
+              <div class="kitchen__selected" id="kitchenEmojiA">😀</div>
+              <div class="kitchen__tabs" id="kitchenTabsA"></div>
+              <div class="kitchen__grid" id="kitchenGridA"></div>
+            </div>
+            <div class="kitchen__panel">
+              <div class="kitchen__label">Emoji 2</div>
+              <div class="kitchen__selected" id="kitchenEmojiB">🥳</div>
+              <div class="kitchen__tabs" id="kitchenTabsB"></div>
+              <div class="kitchen__grid" id="kitchenGridB"></div>
+            </div>
+          </div>
+          <div class="kitchen__result">
+            <div class="kitchen__result-label">Result</div>
+            <div class="kitchen__result-card">
+              <img id="kitchenResultImg" alt="Emoji Kitchen result" />
+              <div class="kitchen__result-text" id="kitchenResultText">Pick two emojis to see the mashup.</div>
+              <button id="kitchenCopy" class="kitchen__copy" type="button">Copy Image URL</button>
+            </div>
+          </div>
+        </section>
 
         <section class="grid" id="resultGrid"></section>
 
