@@ -28,59 +28,65 @@
 
     <main class="content">
       <section class="content__main">
-        <nav class="tabs" id="typeTabs"></nav>
-        <div class="chips" id="themeChips"></div>
-        <div class="meta" id="resultMeta"></div>
-        <div class="recent" id="recentList"></div>
+        <div class="content__layout">
+          <aside class="filters">
+            <nav class="tabs" id="typeTabs"></nav>
+          </aside>
+          <div class="content__body">
+            <div class="chips" id="themeChips"></div>
+            <div class="meta" id="resultMeta"></div>
+            <div class="recent" id="recentList"></div>
 
-        <section class="kitchen" id="kitchen">
-          <div class="kitchen__header">
-            <div>
-              <h2>Emoji Kitchen</h2>
-              <p>Pick two emojis and get a real mashup sticker.</p>
-            </div>
-            <button id="kitchenSwap" class="kitchen__swap" type="button">Swap</button>
-          </div>
-          <div class="kitchen__selectors">
-            <div class="kitchen__panel">
-              <div class="kitchen__label">Emoji 1</div>
-              <div class="kitchen__selected" id="kitchenEmojiA">😀</div>
-              <div class="kitchen__tabs" id="kitchenTabsA"></div>
-              <div class="kitchen__grid" id="kitchenGridA"></div>
-            </div>
-            <div class="kitchen__panel">
-              <div class="kitchen__label">Emoji 2</div>
-              <div class="kitchen__selected" id="kitchenEmojiB">🥳</div>
-              <div class="kitchen__tabs" id="kitchenTabsB"></div>
-              <div class="kitchen__grid" id="kitchenGridB"></div>
-            </div>
-          </div>
-          <div class="kitchen__result">
-            <div class="kitchen__result-label">Result</div>
-            <div class="kitchen__result-card">
-              <img id="kitchenResultImg" alt="Emoji Kitchen result" />
-              <div class="kitchen__result-text" id="kitchenResultText">Pick two emojis to see the mashup.</div>
-              <div class="kitchen__actions">
-                <button id="kitchenCopy" class="kitchen__copy" type="button">Copy Image URL</button>
-                <button id="kitchenDownload" class="kitchen__download" type="button">Download PNG</button>
+            <section class="kitchen" id="kitchen">
+              <div class="kitchen__header">
+                <div>
+                  <h2>Emoji Kitchen</h2>
+                  <p>Pick two emojis and get a real mashup sticker.</p>
+                </div>
+                <button id="kitchenSwap" class="kitchen__swap" type="button">Swap</button>
               </div>
-            </div>
-          </div>
-        </section>
+              <div class="kitchen__selectors">
+                <div class="kitchen__panel">
+                  <div class="kitchen__label">Emoji 1</div>
+                  <div class="kitchen__selected" id="kitchenEmojiA">😀</div>
+                  <div class="kitchen__tabs" id="kitchenTabsA"></div>
+                  <div class="kitchen__grid" id="kitchenGridA"></div>
+                </div>
+                <div class="kitchen__panel">
+                  <div class="kitchen__label">Emoji 2</div>
+                  <div class="kitchen__selected" id="kitchenEmojiB">🥳</div>
+                  <div class="kitchen__tabs" id="kitchenTabsB"></div>
+                  <div class="kitchen__grid" id="kitchenGridB"></div>
+                </div>
+              </div>
+              <div class="kitchen__result">
+                <div class="kitchen__result-label">Result</div>
+                <div class="kitchen__result-card">
+                  <img id="kitchenResultImg" alt="Emoji Kitchen result" />
+                  <div class="kitchen__result-text" id="kitchenResultText">Pick two emojis to see the mashup.</div>
+                  <div class="kitchen__actions">
+                    <button id="kitchenCopy" class="kitchen__copy" type="button">Copy Image URL</button>
+                    <button id="kitchenDownload" class="kitchen__download" type="button">Download PNG</button>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-        <section class="grid" id="resultGrid"></section>
+            <section class="grid" id="resultGrid"></section>
 
-        <section class="symbol-explorer" id="symbolExplorer">
-          <div class="symbol-explorer__header">
-            <div>
-              <h2>Symbol Explorer</h2>
-              <p>Browse symbols by category and click to copy.</p>
-            </div>
+            <section class="symbol-explorer" id="symbolExplorer">
+              <div class="symbol-explorer__header">
+                <div>
+                  <h2>Symbol Explorer</h2>
+                  <p>Browse symbols by category and click to copy.</p>
+                </div>
+              </div>
+              <div class="symbol-tabs" id="blockTabs"></div>
+              <div class="symbol-explorer__meta" id="symbolMeta"></div>
+              <div class="symbol-grid" id="symbolGrid"></div>
+            </section>
           </div>
-          <div class="symbol-tabs" id="blockTabs"></div>
-          <div class="symbol-explorer__meta" id="symbolMeta"></div>
-          <div class="symbol-grid" id="symbolGrid"></div>
-        </section>
+        </div>
       </section>
     </main>
   </div>

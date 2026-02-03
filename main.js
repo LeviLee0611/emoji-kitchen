@@ -804,6 +804,13 @@ const kitchenDownload = document.getElementById("kitchenDownload");
 const kitchenSwap = document.getElementById("kitchenSwap");
 
 const types = ["All", "Kaomoji", "Aesthetic Symbols", "ASCII Art", "Emoji Kitchen"];
+const typeMeta = {
+  All: { icon: "◈" },
+  Kaomoji: { icon: "ツ" },
+  "Aesthetic Symbols": { icon: "✶" },
+  "ASCII Art": { icon: "#" },
+  "Emoji Kitchen": { icon: "🧪" }
+};
 let activeType = "All";
 let activeTheme = "All";
 let activeBlock = "all";
@@ -823,6 +830,10 @@ function createTab(label, isActive, onClick) {
   button.className = "tab" + (isActive ? " active" : "");
   button.type = "button";
   button.textContent = label;
+  button.dataset.type = label;
+  if (typeMeta[label]?.icon) {
+    button.dataset.icon = typeMeta[label].icon;
+  }
   button.addEventListener("click", onClick);
   return button;
 }
@@ -1209,6 +1220,13 @@ kitchenDownload.addEventListener("click", () => {
 themeToggle.addEventListener("click", () => {
   const isDark = document.body.classList.contains("theme-dark");
   setTheme(isDark ? "light" : "dark");
+});
+
+dailyPick.addEventListener("click", () => {
+  const text = dailyPick.textContent?.trim();
+  if (text) {
+    copyToClipboard(text, "Copied!");
+  }
 });
 
 setTheme(savedTheme);
