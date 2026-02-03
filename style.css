@@ -142,6 +142,8 @@ body.theme-dark {
   position: sticky;
   top: 18px;
   align-self: start;
+  display: grid;
+  gap: 14px;
 }
 
 .tabs {
@@ -149,6 +151,38 @@ body.theme-dark {
   gap: 12px;
   flex-direction: column;
   padding: 4px 0;
+}
+
+.request-card {
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.request-card__eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.request-card__title {
+  margin: 8px 0 6px;
+  font-size: 16px;
+}
+
+.request-card__desc {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.request-card__thread {
+  min-height: 280px;
 }
 
 .tab {
