@@ -997,16 +997,17 @@ const kitchenResultText = document.getElementById("kitchenResultText");
 const kitchenCopy = document.getElementById("kitchenCopy");
 const kitchenDownload = document.getElementById("kitchenDownload");
 const kitchenSwap = document.getElementById("kitchenSwap");
+const requestButton = document.getElementById("requestButton");
+const requestSection = document.getElementById("requestSection");
 
-const types = ["All", "Kaomoji", "Aesthetic Symbols", "ASCII Art", "Emoji Kitchen"];
+const types = ["Kaomoji", "Aesthetic Symbols", "ASCII Art", "Emoji Kitchen"];
 const typeMeta = {
-  All: { icon: "◈" },
   Kaomoji: { icon: "ツ" },
   "Aesthetic Symbols": { icon: "✶" },
   "ASCII Art": { icon: "#" },
   "Emoji Kitchen": { icon: "🧪" }
 };
-let activeType = "All";
+let activeType = "Kaomoji";
 let activeTheme = "All";
 let activeBlock = "all";
 
@@ -1345,9 +1346,7 @@ function updateKitchenResult() {
 function render() {
   renderTabs();
 
-  const byType = activeType === "All"
-    ? data
-    : data.filter((entry) => entry.type === activeType);
+  const byType = data.filter((entry) => entry.type === activeType);
 
   renderThemeChips(byType);
 
@@ -1355,16 +1354,15 @@ function render() {
 
   renderEmojiGrid(filtered);
 
-  resultMeta.textContent = `Showing ${filtered.length} themes in ${activeType === "All" ? "all types" : activeType}`;
+  resultMeta.textContent = `Showing ${filtered.length} themes in ${activeType}`;
 
   renderSymbolTabs();
   renderSymbolExplorer();
 
-  kitchen.style.display = activeType === "Emoji Kitchen" || activeType === "All" ? "block" : "none";
+  kitchen.style.display = activeType === "Emoji Kitchen" ? "block" : "none";
   resultGrid.style.display = activeType === "Emoji Kitchen" ? "none" : "grid";
   themeChips.style.display = activeType === "Emoji Kitchen" ? "none" : "flex";
-  symbolExplorer.style.display =
-    activeType === "All" || activeType === "Aesthetic Symbols" ? "block" : "none";
+  symbolExplorer.style.display = activeType === "Aesthetic Symbols" ? "block" : "none";
 }
 
 function setTheme(mode) {
@@ -1415,6 +1413,12 @@ kitchenDownload.addEventListener("click", () => {
 themeToggle.addEventListener("click", () => {
   const isDark = document.body.classList.contains("theme-dark");
   setTheme(isDark ? "light" : "dark");
+});
+
+requestButton.addEventListener("click", () => {
+  if (requestSection) {
+    requestSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 });
 
 dailyPick.addEventListener("click", () => {

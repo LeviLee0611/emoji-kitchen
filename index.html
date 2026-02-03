@@ -31,14 +31,7 @@
         <div class="content__layout">
           <aside class="filters">
             <nav class="tabs" id="typeTabs"></nav>
-            <section class="request-card">
-              <div class="request-card__eyebrow">Have ideas?</div>
-              <h3 class="request-card__title">Tell me what to add</h3>
-              <p class="request-card__desc">
-                Want a new theme or style? Drop a friendly note and I’ll add it here.
-              </p>
-              <div id="disqus_thread" class="request-card__thread"></div>
-            </section>
+            <button class="request-button" type="button" id="requestButton">Tell me what to add</button>
           </aside>
           <div class="content__body">
             <div class="chips" id="themeChips"></div>
@@ -92,6 +85,14 @@
               <div class="symbol-tabs" id="blockTabs"></div>
               <div class="symbol-explorer__meta" id="symbolMeta"></div>
               <div class="symbol-grid" id="symbolGrid"></div>
+            </section>
+
+            <section class="request-section" id="requestSection">
+              <h2>Tell me what to add</h2>
+              <p class="request-section__desc">
+                Want a new theme or style? Leave a note and I’ll add it here.
+              </p>
+              <div id="disqus_thread" class="request-section__thread"></div>
             </section>
           </div>
         </div>
