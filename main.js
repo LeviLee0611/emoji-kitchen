@@ -1324,6 +1324,7 @@ const toast = document.getElementById("toast");
 const themeToggle = document.getElementById("themeToggle");
 const recentList = document.getElementById("recentList");
 const themeSearch = document.getElementById("themeSearch");
+const langSelect = document.getElementById("langSelect");
 const symbolExplorer = document.getElementById("symbolExplorer");
 const symbolGrid = document.getElementById("symbolGrid");
 const symbolMeta = document.getElementById("symbolMeta");
@@ -1356,7 +1357,8 @@ const typeMeta = {
   "Emoji Kitchen": { icon: "🧪" }
 };
 let activeType = "Kaomoji";
-let activeTheme = "All";
+const ALL_THEME = "all";
+let activeTheme = ALL_THEME;
 let activeBlock = "all";
 let themeQuery = "";
 
@@ -1368,18 +1370,320 @@ let currentKitchenUrl = "";
 let lastKitchenTarget = "B";
 
 const RECENT_KEY = "recent-items";
+const LANG_KEY = "language";
 const MAX_RECENT = 10;
 let recentItems = [];
+let currentLang = "en";
+
+const i18n = {
+  en: {
+    hero_eyebrow: "Kaomoji · Aesthetic Symbols · ASCII Art · Emoji Kitchen",
+    hero_title: "Special Emoji & Symbols Collection",
+    hero_subtitle: "Pick a category and theme, then click to copy. Explore Emoji Kitchen mashups and symbol grids below.",
+    today_pick: "Today’s Pick",
+    click_any_item: "Click any item to copy",
+    request_button: "Tell me what to add",
+    theme_search_placeholder: "Filter themes (e.g., s for Stop/Study/Sad)",
+    kitchen_title: "Emoji Kitchen",
+    kitchen_subtitle: "Pick two emojis and get a real mashup sticker.",
+    swap: "Swap",
+    result: "Result",
+    kitchen_pick_two: "Pick two emojis to see the mashup.",
+    try_pairing: "Try pairing with",
+    copy_image_url: "Copy Image URL",
+    download_png: "Download PNG",
+    emoji_1: "Emoji 1",
+    emoji_2: "Emoji 2",
+    symbol_explorer: "Symbol Explorer",
+    symbol_explorer_subtitle: "Browse symbols by category and click to copy.",
+    request_title: "Tell me what to add",
+    request_desc: "Want a new theme or style? Leave a note.",
+    all: "All",
+    recent: "Recently copied",
+    click_to_copy: "Click to copy",
+    copied: "Copied!",
+    image_url_copied: "Image URL copied!",
+    no_mashup: "No mashup found for this combo. Try another pair.",
+    showing: ({ count, type }) => `Showing ${count} themes in ${type}`,
+    dark_mode: "Dark mode",
+    light_mode: "Light mode",
+    type_Kaomoji: "Kaomoji",
+    type_Aesthetic_Symbols: "Aesthetic Symbols",
+    type_ASCII_Art: "ASCII Art",
+    type_Emoji_Kitchen: "Emoji Kitchen"
+  },
+  ko: {
+    hero_eyebrow: "카모지 · 에스테틱 심볼 · ASCII 아트 · 이모지 키친",
+    hero_title: "스페셜 이모지 & 심볼 컬렉션",
+    hero_subtitle: "카테고리와 테마를 고른 뒤 클릭하면 복사돼요. 아래에서 이모지 키친과 심볼을 둘러보세요.",
+    today_pick: "오늘의 픽",
+    click_any_item: "클릭하면 복사됩니다",
+    request_button: "추가할 것 알려주세요",
+    theme_search_placeholder: "테마 필터 (예: s → Stop/Study/Sad)",
+    kitchen_title: "이모지 키친",
+    kitchen_subtitle: "이모지 두 개를 골라 실제 합성 스티커를 받아보세요.",
+    swap: "교체",
+    result: "결과",
+    kitchen_pick_two: "이모지 두 개를 고르면 결과가 보여요.",
+    try_pairing: "이 조합도 추천",
+    copy_image_url: "이미지 URL 복사",
+    download_png: "PNG 다운로드",
+    emoji_1: "이모지 1",
+    emoji_2: "이모지 2",
+    symbol_explorer: "심볼 탐색",
+    symbol_explorer_subtitle: "카테고리별 심볼을 보고 클릭해서 복사하세요.",
+    request_title: "추가 요청하기",
+    request_desc: "원하는 테마나 스타일이 있나요? 남겨주면 추가할게요.",
+    all: "전체",
+    recent: "최근 복사됨",
+    click_to_copy: "클릭해서 복사",
+    copied: "복사됨!",
+    image_url_copied: "이미지 URL 복사됨!",
+    no_mashup: "이 조합은 결과가 없어요. 다른 조합을 시도해보세요.",
+    showing: ({ count, type }) => `${type}에서 ${count}개 테마 표시`,
+    dark_mode: "다크 모드",
+    light_mode: "라이트 모드",
+    type_Kaomoji: "카모지",
+    type_Aesthetic_Symbols: "에스테틱 심볼",
+    type_ASCII_Art: "ASCII 아트",
+    type_Emoji_Kitchen: "이모지 키친"
+  },
+  ja: {
+    hero_eyebrow: "カオモジ · アスティック記号 · ASCIIアート · 絵文字キッチン",
+    hero_title: "スペシャル絵文字＆記号コレクション",
+    hero_subtitle: "カテゴリとテーマを選んでクリックするとコピーできます。下で絵文字キッチンと記号を見てください。",
+    today_pick: "今日のピック",
+    click_any_item: "クリックでコピー",
+    request_button: "追加したい内容を教えて",
+    theme_search_placeholder: "テーマ検索（例：s → Stop/Study/Sad）",
+    kitchen_title: "絵文字キッチン",
+    kitchen_subtitle: "2つの絵文字を選んで合成スタンプを作成。",
+    swap: "入れ替え",
+    result: "結果",
+    kitchen_pick_two: "2つの絵文字を選ぶと結果が表示されます。",
+    try_pairing: "この組み合わせもおすすめ",
+    copy_image_url: "画像URLをコピー",
+    download_png: "PNGをダウンロード",
+    emoji_1: "絵文字 1",
+    emoji_2: "絵文字 2",
+    symbol_explorer: "記号エクスプローラー",
+    symbol_explorer_subtitle: "カテゴリ別に記号を見て、クリックでコピー。",
+    request_title: "追加リクエスト",
+    request_desc: "新しいテーマやスタイルがあれば教えてください。",
+    all: "すべて",
+    recent: "最近コピー",
+    click_to_copy: "クリックでコピー",
+    copied: "コピーしました！",
+    image_url_copied: "画像URLをコピーしました！",
+    no_mashup: "この組み合わせはありません。別の組み合わせを試してください。",
+    showing: ({ count, type }) => `${type}のテーマ ${count}件を表示`,
+    dark_mode: "ダークモード",
+    light_mode: "ライトモード",
+    type_Kaomoji: "カオモジ",
+    type_Aesthetic_Symbols: "美学記号",
+    type_ASCII_Art: "ASCIIアート",
+    type_Emoji_Kitchen: "絵文字キッチン"
+  },
+  zh: {
+    hero_eyebrow: "颜文字 · 美学符号 · ASCII 艺术 · 表情厨房",
+    hero_title: "精选表情与符号合集",
+    hero_subtitle: "选择分类和主题后点击即可复制。下方可体验表情厨房与符号浏览。",
+    today_pick: "今日精选",
+    click_any_item: "点击即可复制",
+    request_button: "告诉我想加什么",
+    theme_search_placeholder: "筛选主题（例如：s → Stop/Study/Sad）",
+    kitchen_title: "表情厨房",
+    kitchen_subtitle: "选择两个表情，生成合成贴纸。",
+    swap: "交换",
+    result: "结果",
+    kitchen_pick_two: "选择两个表情即可查看结果。",
+    try_pairing: "可尝试这些搭配",
+    copy_image_url: "复制图片链接",
+    download_png: "下载 PNG",
+    emoji_1: "表情 1",
+    emoji_2: "表情 2",
+    symbol_explorer: "符号浏览",
+    symbol_explorer_subtitle: "按分类浏览符号并点击复制。",
+    request_title: "提交想法",
+    request_desc: "想要新的主题或风格？留言告诉我。",
+    all: "全部",
+    recent: "最近复制",
+    click_to_copy: "点击复制",
+    copied: "已复制！",
+    image_url_copied: "图片链接已复制！",
+    no_mashup: "此组合没有结果，试试其他组合。",
+    showing: ({ count, type }) => `显示 ${type} 的 ${count} 个主题`,
+    dark_mode: "深色模式",
+    light_mode: "浅色模式",
+    type_Kaomoji: "颜文字",
+    type_Aesthetic_Symbols: "美学符号",
+    type_ASCII_Art: "ASCII 艺术",
+    type_Emoji_Kitchen: "表情厨房"
+  },
+  es: {
+    hero_eyebrow: "Kaomoji · Símbolos estéticos · Arte ASCII · Emoji Kitchen",
+    hero_title: "Colección de Emojis y Símbolos Especiales",
+    hero_subtitle: "Elige una categoría y tema, luego haz clic para copiar. Explora Emoji Kitchen y la cuadrícula de símbolos.",
+    today_pick: "Selección del día",
+    click_any_item: "Haz clic para copiar",
+    request_button: "Dime qué agregar",
+    theme_search_placeholder: "Filtra temas (ej.: s → Stop/Study/Sad)",
+    kitchen_title: "Emoji Kitchen",
+    kitchen_subtitle: "Elige dos emojis y obtén una mezcla real.",
+    swap: "Intercambiar",
+    result: "Resultado",
+    kitchen_pick_two: "Elige dos emojis para ver la mezcla.",
+    try_pairing: "Prueba con",
+    copy_image_url: "Copiar URL de imagen",
+    download_png: "Descargar PNG",
+    emoji_1: "Emoji 1",
+    emoji_2: "Emoji 2",
+    symbol_explorer: "Explorador de símbolos",
+    symbol_explorer_subtitle: "Explora por categoría y copia con un clic.",
+    request_title: "Cuéntame qué agregar",
+    request_desc: "¿Quieres un nuevo tema o estilo? Deja una nota.",
+    all: "Todos",
+    recent: "Copiados recientemente",
+    click_to_copy: "Haz clic para copiar",
+    copied: "¡Copiado!",
+    image_url_copied: "¡URL copiada!",
+    no_mashup: "No hay mezcla para esta combinación. Prueba otra.",
+    showing: ({ count, type }) => `Mostrando ${count} temas en ${type}`,
+    dark_mode: "Modo oscuro",
+    light_mode: "Modo claro",
+    type_Kaomoji: "Kaomoji",
+    type_Aesthetic_Symbols: "Símbolos estéticos",
+    type_ASCII_Art: "Arte ASCII",
+    type_Emoji_Kitchen: "Emoji Kitchen"
+  }
+};
+
+const i18nThemeMap = {
+  ko: {
+    Kaomoji: {
+      Happy: "행복",
+      Thinking: "생각",
+      Excited: "신남",
+      Please: "부탁",
+      Weird: "이상함",
+      Wink: "윙크",
+      Hello: "인사",
+      Salute: "경례",
+      Fear: "두려움",
+      Sad: "슬픔",
+      Thanks: "감사",
+      Angry: "화남",
+      Love: "사랑",
+      Hungry: "배고픔",
+      Sleepy: "졸림",
+      Surprised: "놀람",
+      Cheer: "응원",
+      Hug: "포옹",
+      Worried: "걱정",
+      Study: "공부",
+      Stop: "멈춰",
+      Confused: "혼란",
+      Cool: "쿨함",
+      Shy: "수줍음",
+      Party: "파티",
+      Sick: "아픔",
+      Cry: "울음",
+      Laugh: "웃음",
+      Shrug: "어쩔",
+      Energy: "에너지",
+      Clap: "박수",
+      Oops: "실수",
+      Victory: "승리",
+      Wave: "손흔들기",
+      Pout: "토라짐",
+      Sunglasses: "선글라스",
+      Run: "달리기"
+    },
+    "Aesthetic Symbols": {
+      Hearts: "하트",
+      "Color Hearts": "컬러 하트",
+      Stars: "별",
+      "Lines & Frames": "라인 & 프레임",
+      "Dots & Patterns": "점 & 패턴",
+      Arrows: "화살표",
+      Nature: "자연",
+      Music: "음악",
+      "Check & X": "체크 & 엑스",
+      "Moon & Space": "달 & 우주",
+      Weather: "날씨",
+      Shapes: "도형",
+      Brackets: "괄호",
+      "Cute & Cozy": "귀여움 & 포근함",
+      "Color Stars": "컬러 별",
+      "Color Circles": "컬러 원",
+      "Color Squares": "컬러 사각형",
+      "Color Gems": "컬러 보석",
+      Sparkles: "반짝임",
+      Bows: "리본",
+      "Color Triangles": "컬러 삼각형",
+      "Pastel Mood": "파스텔 무드",
+      "Cute Sparks": "귀여운 반짝임"
+    },
+    "ASCII Art": {
+      Cat: "고양이",
+      Bear: "곰",
+      Rabbit: "토끼",
+      Dog: "강아지",
+      Heart: "하트",
+      "Small Star": "작은 별",
+      Face: "얼굴",
+      Kirby: "커비",
+      "Box Art": "상자",
+      Cloud: "구름",
+      Tree: "나무",
+      Fish: "물고기",
+      Bird: "새",
+      Car: "자동차",
+      House: "집",
+      Coffee: "커피",
+      Flower: "꽃",
+      Moon: "달",
+      Sun: "태양",
+      Rocket: "로켓",
+      Plane: "비행기",
+      Alien: "외계인",
+      Keyboard: "키보드",
+      Cupcake: "컵케이크"
+    }
+  }
+};
+
+const i18nKitchenCategoryMap = {
+  ko: {
+    all: "전체",
+    smileys: "표정",
+    people: "사람",
+    hands: "손",
+    animals: "동물",
+    food: "음식",
+    nature: "자연",
+    travel: "여행",
+    objects: "사물",
+    symbols: "기호"
+  }
+};
+
+const i18nSymbolBlockMap = {
+  ko: {
+    All: "전체",
+    "Lines & Frames": "라인 & 프레임",
+    Arrows: "화살표",
+    Shapes: "도형",
+    Decorative: "장식",
+    Misc: "기타"
+  }
+};
 
 function createTab(label, isActive, onClick) {
   const button = document.createElement("button");
   button.className = "tab" + (isActive ? " active" : "");
   button.type = "button";
   button.textContent = label;
-  button.dataset.type = label;
-  if (typeMeta[label]?.icon) {
-    button.dataset.icon = typeMeta[label].icon;
-  }
   button.addEventListener("click", onClick);
   return button;
 }
@@ -1420,7 +1724,13 @@ function createKitchenEmoji(emoji, isActive, onClick) {
   return button;
 }
 
-function showToast(message = "Copied!") {
+function t(key, vars) {
+  const langPack = i18n[currentLang] || i18n.en;
+  const value = langPack[key];
+  return typeof value === "function" ? value(vars || {}) : value;
+}
+
+function showToast(message = t("copied")) {
   toast.textContent = message;
   toast.classList.add("show");
   window.setTimeout(() => toast.classList.remove("show"), 1200);
@@ -1448,7 +1758,7 @@ function renderRecent() {
 
   const label = document.createElement("div");
   label.className = "recent__label";
-  label.textContent = "Recently copied";
+  label.textContent = t("recent");
   recentList.appendChild(label);
 
   recentItems.forEach((item) => {
@@ -1456,13 +1766,13 @@ function renderRecent() {
     button.type = "button";
     button.className = "recent__item";
     button.textContent = item;
-    button.addEventListener("click", () => copyToClipboard(item, "Copied!"));
+    button.addEventListener("click", () => copyToClipboard(item, t("copied")));
     recentList.appendChild(button);
   });
 }
 
 function matchesTheme(entry) {
-  return activeTheme === "All" || entry.theme === activeTheme;
+  return activeTheme === ALL_THEME || entry.theme === activeTheme;
 }
 
 function buildSymbolCatalog() {
@@ -1490,32 +1800,55 @@ function formatCode(code) {
   return `U+${code.toString(16).toUpperCase().padStart(4, "0")}`;
 }
 
+function translateTheme(type, theme) {
+  const map = i18nThemeMap[currentLang]?.[type];
+  return map?.[theme] || theme;
+}
+
+function translateKitchenCategory(id, fallback) {
+  return i18nKitchenCategoryMap[currentLang]?.[id] || fallback;
+}
+
+function translateSymbolBlock(label) {
+  return i18nSymbolBlockMap[currentLang]?.[label] || label;
+}
+
 function renderTabs() {
   typeTabs.innerHTML = "";
-  types.forEach((label) => {
-    const button = createTab(label, label === activeType, () => {
-      activeType = label === activeType ? "All" : label;
-      activeTheme = "All";
+  types.forEach((typeId) => {
+    const typeKey = `type_${typeId.replace(/\s/g, "_")}`;
+    const label = t(typeKey) || typeId;
+    const button = createTab(label, typeId === activeType, () => {
+      activeType = typeId;
+      activeTheme = ALL_THEME;
       render();
     });
+    button.dataset.type = typeId;
+    if (typeMeta[typeId]?.icon) {
+      button.dataset.icon = typeMeta[typeId].icon;
+    }
     typeTabs.appendChild(button);
   });
 }
 
 function renderThemeChips(filteredData) {
   const rawThemes = Array.from(new Set(filteredData.map((entry) => entry.theme)));
-  const sortedThemes = rawThemes.sort((a, b) => a.localeCompare(b));
-  const themes = ["All", ...sortedThemes];
+  const themes = rawThemes.map((theme) => ({
+    id: theme,
+    label: translateTheme(activeType, theme)
+  }));
+  const sortedThemes = themes.sort((a, b) => a.label.localeCompare(b.label));
+  const fullThemes = [{ id: ALL_THEME, label: t("all") }, ...sortedThemes];
   const query = themeQuery.trim().toLowerCase();
-  const visibleThemes = themes.filter((label) => {
-    if (label === "All") return true;
+  const visibleThemes = fullThemes.filter((theme) => {
+    if (theme.id === ALL_THEME) return true;
     if (!query) return true;
-    return label.toLowerCase().startsWith(query);
+    return theme.label.toLowerCase().startsWith(query);
   });
   themeChips.innerHTML = "";
-  visibleThemes.forEach((label) => {
-    const button = createChip(label, label === activeTheme, () => {
-      activeTheme = label === activeTheme ? "All" : label;
+  visibleThemes.forEach((theme) => {
+    const button = createChip(theme.label, theme.id === activeTheme, () => {
+      activeTheme = theme.id === activeTheme ? ALL_THEME : theme.id;
       render();
     });
     themeChips.appendChild(button);
@@ -1525,7 +1858,8 @@ function renderThemeChips(filteredData) {
 function renderSymbolTabs() {
   blockTabs.innerHTML = "";
   symbolBlocks.forEach((block) => {
-    const button = createSymbolTab(block.label, block.id === activeBlock, () => {
+    const label = translateSymbolBlock(block.label);
+    const button = createSymbolTab(label, block.id === activeBlock, () => {
       activeBlock = block.id === activeBlock ? "all" : block.id;
       renderSymbolExplorer();
     });
@@ -1555,7 +1889,7 @@ function renderSymbolExplorer() {
     card.appendChild(char);
     card.appendChild(code);
 
-    card.addEventListener("click", () => copyToClipboard(item.char, "Copied!"));
+    card.addEventListener("click", () => copyToClipboard(item.char, t("copied")));
     symbolGrid.appendChild(card);
   });
 
@@ -1574,11 +1908,11 @@ function renderEmojiGrid(filtered) {
 
     const type = document.createElement("div");
     type.className = "card__type";
-    type.textContent = entry.type;
+    type.textContent = t(`type_${entry.type.replace(/\s/g, "_")}`) || entry.type;
 
     const theme = document.createElement("div");
     theme.className = "card__theme";
-    theme.textContent = entry.theme;
+    theme.textContent = translateTheme(entry.type, entry.theme);
 
     header.appendChild(type);
     header.appendChild(theme);
@@ -1596,14 +1930,14 @@ function renderEmojiGrid(filtered) {
 
       const hint = document.createElement("div");
       hint.className = "item__hint";
-      hint.textContent = "Click to copy";
+      hint.textContent = t("click_to_copy");
 
       item.appendChild(text);
       if (entry.type !== "ASCII Art") {
         item.appendChild(hint);
       }
 
-      item.addEventListener("click", () => copyToClipboard(itemText, "Copied!"));
+      item.addEventListener("click", () => copyToClipboard(itemText, t("copied")));
       items.appendChild(item);
     });
 
@@ -1634,7 +1968,8 @@ function renderKitchenTabs(target) {
   container.innerHTML = "";
 
   kitchenCategories.forEach((category) => {
-    const button = createKitchenTab(category.label, category.id === active, () => {
+    const label = translateKitchenCategory(category.id, category.label);
+    const button = createKitchenTab(label, category.id === active, () => {
       if (target === "A") {
         kitchenCategoryA = category.id;
       } else {
@@ -1733,7 +2068,7 @@ function updateKitchenResult() {
 
   kitchenResultImg.onerror = () => {
     kitchenResultImg.classList.add("hidden");
-    kitchenResultText.textContent = "No mashup found for this combo. Try another pair.";
+    kitchenResultText.textContent = t("no_mashup");
     renderKitchenSuggestions();
     kitchenSuggestions.classList.remove("hidden");
   };
@@ -1750,7 +2085,8 @@ function render() {
 
   renderEmojiGrid(filtered);
 
-  resultMeta.textContent = `Showing ${filtered.length} themes in ${activeType}`;
+  const activeTypeLabel = t(`type_${activeType.replace(/\s/g, "_")}`) || activeType;
+  resultMeta.textContent = t("showing", { count: filtered.length, type: activeTypeLabel });
 
   renderSymbolTabs();
   renderSymbolExplorer();
@@ -1764,11 +2100,37 @@ function render() {
 function setTheme(mode) {
   const isDark = mode === "dark";
   document.body.classList.toggle("theme-dark", isDark);
-  themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+  themeToggle.textContent = isDark ? t("light_mode") : t("dark_mode");
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-const savedTheme = localStorage.getItem("theme") || "light";
+function applyTranslations(lang) {
+  currentLang = i18n[lang] ? lang : "en";
+  document.documentElement.setAttribute("lang", currentLang);
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (!key) return;
+    el.textContent = t(key);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (!key) return;
+    el.setAttribute("placeholder", t(key));
+  });
+  setTheme(localStorage.getItem("theme") || "light");
+}
+
+function detectLanguage() {
+  const saved = localStorage.getItem(LANG_KEY);
+  if (saved && i18n[saved]) return saved;
+  const lang = (navigator.language || "en").toLowerCase();
+  if (lang.startsWith("ko")) return "ko";
+  if (lang.startsWith("ja")) return "ja";
+  if (lang.startsWith("zh")) return "zh";
+  if (lang.startsWith("es")) return "es";
+  return "en";
+}
+
 const savedRecent = localStorage.getItem(RECENT_KEY);
 if (savedRecent) {
   try {
@@ -1790,7 +2152,7 @@ kitchenSwap.addEventListener("click", () => {
 
 kitchenCopy.addEventListener("click", () => {
   if (currentKitchenUrl) {
-    copyToClipboard(currentKitchenUrl, "Image URL copied!");
+    copyToClipboard(currentKitchenUrl, t("image_url_copied"));
   }
 });
 
@@ -1809,6 +2171,14 @@ kitchenDownload.addEventListener("click", () => {
 themeToggle.addEventListener("click", () => {
   const isDark = document.body.classList.contains("theme-dark");
   setTheme(isDark ? "light" : "dark");
+});
+
+langSelect.addEventListener("change", (event) => {
+  const lang = event.target.value;
+  localStorage.setItem(LANG_KEY, lang);
+  applyTranslations(lang);
+  renderRecent();
+  render();
 });
 
 themeSearch.addEventListener("input", (event) => {
@@ -1837,11 +2207,13 @@ window.addEventListener("scroll", () => {
 dailyPick.addEventListener("click", () => {
   const text = dailyPick.textContent?.trim();
   if (text) {
-    copyToClipboard(text, "Copied!");
+    copyToClipboard(text, t("copied"));
   }
 });
 
-setTheme(savedTheme);
+const initialLang = detectLanguage();
+langSelect.value = initialLang;
+applyTranslations(initialLang);
 renderRecent();
 setDailyPick();
 render();

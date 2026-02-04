@@ -11,18 +11,27 @@
     <header class="hero">
       <div class="hero__content">
         <div class="hero__top">
-          <p class="hero__eyebrow">Kaomoji · Aesthetic Symbols · ASCII Art · Emoji Kitchen</p>
-          <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+          <p class="hero__eyebrow" data-i18n="hero_eyebrow">Kaomoji · Aesthetic Symbols · ASCII Art · Emoji Kitchen</p>
+          <div class="hero__controls">
+            <select id="langSelect" class="lang-select" aria-label="Language">
+              <option value="en">English</option>
+              <option value="ko">한국어</option>
+              <option value="ja">日本語</option>
+              <option value="zh">中文</option>
+              <option value="es">Español</option>
+            </select>
+            <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+          </div>
         </div>
-        <h1>Special Emoji & Symbols Collection</h1>
-        <p class="hero__subtitle">
+        <h1 data-i18n="hero_title">Special Emoji & Symbols Collection</h1>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">
           Pick a category and theme, then click to copy. Explore Emoji Kitchen mashups and symbol grids below.
         </p>
       </div>
       <div class="hero__card">
-        <div class="hero__card-title">Today’s Pick</div>
+        <div class="hero__card-title" data-i18n="today_pick">Today’s Pick</div>
         <div class="hero__card-emoji" id="dailyPick">〜𐭜 ᜊ°ཫ° )ᜊ</div>
-        <p class="hero__card-note">Click any item to copy</p>
+        <p class="hero__card-note" data-i18n="click_any_item">Click any item to copy</p>
       </div>
     </header>
 
@@ -31,46 +40,46 @@
         <div class="content__layout">
           <aside class="filters">
             <nav class="tabs" id="typeTabs"></nav>
-            <button class="request-button" type="button" id="requestButton">Tell me what to add</button>
+            <button class="request-button" type="button" id="requestButton" data-i18n="request_button">Tell me what to add</button>
           </aside>
           <div class="content__body">
             <div class="chips" id="themeChips"></div>
-            <input class="theme-search" id="themeSearch" type="search" placeholder="Filter themes (e.g., s for Stop/Study/Sad)" aria-label="Filter themes" />
+            <input class="theme-search" id="themeSearch" type="search" placeholder="Filter themes (e.g., s for Stop/Study/Sad)" aria-label="Filter themes" data-i18n-placeholder="theme_search_placeholder" />
             <div class="meta" id="resultMeta"></div>
             <div class="recent" id="recentList"></div>
 
             <section class="kitchen" id="kitchen">
               <div class="kitchen__header">
                 <div>
-                  <h2>Emoji Kitchen</h2>
-                  <p>Pick two emojis and get a real mashup sticker.</p>
+                  <h2 data-i18n="kitchen_title">Emoji Kitchen</h2>
+                  <p data-i18n="kitchen_subtitle">Pick two emojis and get a real mashup sticker.</p>
                 </div>
-                <button id="kitchenSwap" class="kitchen__swap" type="button">Swap</button>
+                <button id="kitchenSwap" class="kitchen__swap" type="button" data-i18n="swap">Swap</button>
               </div>
               <div class="kitchen__result">
-                <div class="kitchen__result-label">Result</div>
+                <div class="kitchen__result-label" data-i18n="result">Result</div>
                 <div class="kitchen__result-card">
                   <img id="kitchenResultImg" alt="Emoji Kitchen result" />
-                  <div class="kitchen__result-text" id="kitchenResultText">Pick two emojis to see the mashup.</div>
+                  <div class="kitchen__result-text" id="kitchenResultText" data-i18n="kitchen_pick_two">Pick two emojis to see the mashup.</div>
                   <div class="kitchen__suggestions hidden" id="kitchenSuggestions">
-                    <div class="kitchen__suggestions-label">Try pairing with</div>
+                    <div class="kitchen__suggestions-label" data-i18n="try_pairing">Try pairing with</div>
                     <div class="kitchen__suggestions-list" id="kitchenSuggestionsList"></div>
                   </div>
                   <div class="kitchen__actions">
-                    <button id="kitchenCopy" class="kitchen__copy" type="button">Copy Image URL</button>
-                    <button id="kitchenDownload" class="kitchen__download" type="button">Download PNG</button>
+                    <button id="kitchenCopy" class="kitchen__copy" type="button" data-i18n="copy_image_url">Copy Image URL</button>
+                    <button id="kitchenDownload" class="kitchen__download" type="button" data-i18n="download_png">Download PNG</button>
                   </div>
                 </div>
               </div>
               <div class="kitchen__selectors">
                 <div class="kitchen__panel">
-                  <div class="kitchen__label">Emoji 1</div>
+                  <div class="kitchen__label" data-i18n="emoji_1">Emoji 1</div>
                   <div class="kitchen__selected" id="kitchenEmojiA">😀</div>
                   <div class="kitchen__tabs" id="kitchenTabsA"></div>
                   <div class="kitchen__grid" id="kitchenGridA"></div>
                 </div>
                 <div class="kitchen__panel">
-                  <div class="kitchen__label">Emoji 2</div>
+                  <div class="kitchen__label" data-i18n="emoji_2">Emoji 2</div>
                   <div class="kitchen__selected" id="kitchenEmojiB">🥳</div>
                   <div class="kitchen__tabs" id="kitchenTabsB"></div>
                   <div class="kitchen__grid" id="kitchenGridB"></div>
@@ -83,8 +92,8 @@
             <section class="symbol-explorer" id="symbolExplorer">
               <div class="symbol-explorer__header">
                 <div>
-                  <h2>Symbol Explorer</h2>
-                  <p>Browse symbols by category and click to copy.</p>
+                  <h2 data-i18n="symbol_explorer">Symbol Explorer</h2>
+                  <p data-i18n="symbol_explorer_subtitle">Browse symbols by category and click to copy.</p>
                 </div>
               </div>
               <div class="symbol-tabs" id="blockTabs"></div>
@@ -93,10 +102,8 @@
             </section>
 
             <section class="request-section" id="requestSection">
-              <h2>Tell me what to add</h2>
-              <p class="request-section__desc">
-                Want a new theme or style? Leave a note.
-              </p>
+              <h2 data-i18n="request_title">Tell me what to add</h2>
+              <p class="request-section__desc" data-i18n="request_desc">Want a new theme or style? Leave a note.</p>
               <div id="disqus_thread" class="request-section__thread"></div>
             </section>
           </div>
@@ -107,7 +114,7 @@
 
   <button class="to-top" id="toTop" type="button" aria-label="Back to top">Top</button>
 
-  <div class="toast" id="toast">Copied!</div>
+  <div class="toast" id="toast" data-i18n="copied">Copied!</div>
 
   <script>
     var disqus_config = function () {
