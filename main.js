@@ -2016,12 +2016,15 @@ const i18nSymbolBlockMap = {
 };
 
 function createTab(label, isActive, onClick) {
-  const button = document.createElement("button");
-  button.className = "tab" + (isActive ? " active" : "");
-  button.type = "button";
-  button.textContent = label;
-  button.addEventListener("click", onClick);
-  return button;
+  const link = document.createElement("a");
+  link.className = "tab" + (isActive ? " active" : "");
+  link.href = "#resultGrid";
+  link.textContent = label;
+  if (isActive) {
+    link.setAttribute("aria-current", "page");
+  }
+  link.addEventListener("click", onClick);
+  return link;
 }
 
 function createChip(label, isActive, onClick) {
