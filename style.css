@@ -208,9 +208,6 @@ body.theme-dark {
 }
 
 .to-top {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
   padding: 10px 14px;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -220,7 +217,7 @@ body.theme-dark {
   cursor: pointer;
   box-shadow: var(--shadow);
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -229,6 +226,11 @@ body.theme-dark {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.to-top--sidebar {
+  width: 100%;
+  text-align: center;
 }
 
 .tab {
