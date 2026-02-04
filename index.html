@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Special Emoji Studio</title>
+  <meta name="description" content="A curated library of kaomoji, aesthetic symbols, ASCII art, and Emoji Kitchen mashups. Browse by category, filter by theme, and copy instantly." />
   <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -25,7 +26,10 @@
         </div>
         <h1 data-i18n="hero_title">Special Emoji & Symbols Collection</h1>
         <p class="hero__subtitle" data-i18n="hero_subtitle">
-          Pick a category and theme, then click to copy. Explore Emoji Kitchen mashups and symbol grids below.
+          Pick a category and theme, then click to copy. Explore Emoji Kitchen mashups, symbol grids, and hand-picked collections built for quick sharing.
+        </p>
+        <p class="hero__subtitle" data-i18n="hero_subtitle_extra">
+          From subtle aesthetic accents to expressive kaomoji, everything is organized so you can find the right vibe in seconds.
         </p>
       </div>
       <div class="hero__card">
@@ -53,7 +57,8 @@
               <div class="kitchen__header">
                 <div>
                   <h2 data-i18n="kitchen_title">Emoji Kitchen</h2>
-                  <p data-i18n="kitchen_subtitle">Pick two emojis and get a real mashup sticker.</p>
+                  <p data-i18n="kitchen_subtitle">Pick two emojis and get a real mashup sticker. Copy the image link or download the PNG instantly.</p>
+                  <p class="section-note" data-i18n="kitchen_note">Use the tabs to browse categories and build combinations that match your mood.</p>
                 </div>
                 <button id="kitchenSwap" class="kitchen__swap" type="button" data-i18n="swap">Swap</button>
               </div>
@@ -94,7 +99,8 @@
               <div class="symbol-explorer__header">
                 <div>
                   <h2 data-i18n="symbol_explorer">Symbol Explorer</h2>
-                  <p data-i18n="symbol_explorer_subtitle">Browse symbols by category and click to copy.</p>
+                  <p data-i18n="symbol_explorer_subtitle">Browse symbols by category and click to copy. Perfect for bios, captions, and subtle separators.</p>
+                  <p class="section-note" data-i18n="symbol_explorer_note">Each block is grouped by Unicode category so you can find the right shape faster.</p>
                 </div>
               </div>
               <div class="symbol-tabs" id="blockTabs"></div>
@@ -104,7 +110,8 @@
 
             <section class="request-section" id="requestSection">
               <h2 data-i18n="request_title">Tell me what to add</h2>
-              <p class="request-section__desc" data-i18n="request_desc">Want a new theme or style? Leave a note.</p>
+              <p class="request-section__desc" data-i18n="request_desc">Want a new theme or style? Leave a note. Suggestions help us prioritize the next batch of emojis and symbols.</p>
+              <p class="request-section__desc" data-i18n="request_desc_extra">If you have a specific vibe in mind, include keywords or examples so we can match it.</p>
               <div id="disqus_thread" class="request-section__thread"></div>
             </section>
           </div>
