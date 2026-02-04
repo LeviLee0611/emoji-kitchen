@@ -79,6 +79,7 @@ const data = [
     theme: "Please",
     tags: ["please", "beg"],
     items: [
+      "m(_ _)m",
       "(。-人-。)",
       "(ㅅ´ ˘ `)",
       "(。•́︿•̀。)",
@@ -127,6 +128,7 @@ const data = [
     theme: "Wink",
     tags: ["wink"],
     items: [
+      "(*^_~)",
       "(^_~)",
       "(・ω<)",
       "(ˆ◡ˆ)~",
@@ -755,6 +757,42 @@ const data = [
     ]
   },
   {
+    type: "Kaomoji",
+    theme: "Smug",
+    tags: ["smug", "proud"],
+    items: [
+      "(￣ー￣)",
+      "(¬‿¬)",
+      "(￣^￣)ゞ",
+      "(｀⌒´)",
+      "(￣︶￣)"
+    ]
+  },
+  {
+    type: "Kaomoji",
+    theme: "Tired",
+    tags: ["tired", "sleepy", "exhausted"],
+    items: [
+      "(－_－) zzZ",
+      "(=_=)",
+      "(￣ρ￣)..zzZZ",
+      "(ᴗ _ᴗ)zzZ",
+      "(x_x)"
+    ]
+  },
+  {
+    type: "Kaomoji",
+    theme: "Blush",
+    tags: ["blush", "shy"],
+    items: [
+      "(⁄ ⁄•⁄ω⁄•⁄ ⁄)",
+      "(⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)",
+      "(〃▽〃)",
+      "(//ω//)",
+      "(´///`)"
+    ]
+  },
+  {
     type: "Aesthetic Symbols",
     theme: "Hearts",
     tags: ["heart", "love"],
@@ -891,6 +929,18 @@ const data = [
     theme: "Cute Sparks",
     tags: ["cute", "sparkle"],
     items: ["✧", "✦", "✶", "✷", "✵", "✺", "❈", "❋", "ꕤ", "𖤐", "𖦹", "𖧷"]
+  },
+  {
+    type: "Aesthetic Symbols",
+    theme: "Waves",
+    tags: ["waves", "flow"],
+    items: ["~", "≈", "≋", "≃", "≅", "〰", "﹏", "︴", "∿", "﹋", "〜", "﹌"]
+  },
+  {
+    type: "Aesthetic Symbols",
+    theme: "Minimal Lines",
+    tags: ["minimal", "line"],
+    items: ["—", "–", "―", "─", "━", "═", "‖", "│", "┃", "╏", "╎", "⋮", "⋯", "∙", "•"]
   },
   {
     type: "ASCII Art",
@@ -1193,6 +1243,24 @@ const data = [
       "  .-.\n (   )\n  `-'\n  |_|",
       "  .-.\n (*** )\n  `-'\n  |_|"
     ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Gamepad",
+    tags: ["game", "controller"],
+    items: [
+      "  .----.\n / _  _ \\\n| (o)(o) |\n|   __   |\n \\______/",
+      "  .----.\n | _  _ |\n |(o)(o)|\n |  __  |\n '------'"
+    ]
+  },
+  {
+    type: "ASCII Art",
+    theme: "Phone",
+    tags: ["phone", "call"],
+    items: [
+      " .----.\n | [] |\n |    |\n |____|",
+      " .----.\n | [] |\n | || |\n |____|"
+    ]
   }
 ];
 
@@ -1292,6 +1360,24 @@ const kitchenCategories = [
       "⌚", "📸", "🎯", "🧵", "🧶", "🧷", "🎲", "🪁", "📚", "🧯",
       "🪛", "🧰", "🪜", "🧲", "🪑", "🪞", "🎹", "🎺", "📌", "🧠",
       "🧪", "🧫", "🧬", "🔬", "🔭", "💎", "🪙", "🎯", "📎", "✂️"
+    ]
+  },
+  {
+    id: "sports",
+    label: "Sports",
+    emojis: [
+      "⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉", "🥏", "🏓", "🏸",
+      "🥊", "🥋", "⛳", "🎳", "🎣", "🏒", "🏑", "🏏", "⛸️", "🥌",
+      "🏂", "🏄", "🚴", "🏊", "🤾", "🤸", "🧗", "🛹", "🏇", "🛼"
+    ]
+  },
+  {
+    id: "celebration",
+    label: "Celebration",
+    emojis: [
+      "🎉", "🎊", "🎈", "🎁", "🎂", "🧁", "🍰", "🥂", "🍾", "🎆",
+      "🎇", "🪄", "🪩", "🕺", "💃", "🥳", "🎶", "🎵", "🎺", "🎷",
+      "🪇", "🪘", "🧨", "📣", "🏆", "🥇", "🥈", "🥉", "🎟️", "🧸"
     ]
   },
   {
@@ -1597,7 +1683,10 @@ const i18nThemeMap = {
       Wave: "손흔들기",
       Pout: "토라짐",
       Sunglasses: "선글라스",
-      Run: "달리기"
+      Run: "달리기",
+      Smug: "우쭐",
+      Tired: "지침",
+      Blush: "홍조"
     },
     "Aesthetic Symbols": {
       Hearts: "하트",
@@ -1622,7 +1711,9 @@ const i18nThemeMap = {
       Bows: "리본",
       "Color Triangles": "컬러 삼각형",
       "Pastel Mood": "파스텔 무드",
-      "Cute Sparks": "귀여운 반짝임"
+      "Cute Sparks": "귀여운 반짝임",
+      Waves: "물결",
+      "Minimal Lines": "미니멀 라인"
     },
     "ASCII Art": {
       Cat: "고양이",
@@ -1648,7 +1739,9 @@ const i18nThemeMap = {
       Plane: "비행기",
       Alien: "외계인",
       Keyboard: "키보드",
-      Cupcake: "컵케이크"
+      Cupcake: "컵케이크",
+      Gamepad: "게임패드",
+      Phone: "전화"
     }
   },
   ja: {
@@ -1689,7 +1782,10 @@ const i18nThemeMap = {
       Wave: "手を振る",
       Pout: "すねる",
       Sunglasses: "サングラス",
-      Run: "走る"
+      Run: "走る",
+      Smug: "どや",
+      Tired: "疲れ",
+      Blush: "赤面"
     },
     "Aesthetic Symbols": {
       Hearts: "ハート",
@@ -1714,7 +1810,9 @@ const i18nThemeMap = {
       Bows: "リボン",
       "Color Triangles": "カラー三角",
       "Pastel Mood": "パステルムード",
-      "Cute Sparks": "かわいいきらきら"
+      "Cute Sparks": "かわいいきらきら",
+      Waves: "波",
+      "Minimal Lines": "ミニマルライン"
     },
     "ASCII Art": {
       Cat: "猫",
@@ -1740,7 +1838,9 @@ const i18nThemeMap = {
       Plane: "飛行機",
       Alien: "宇宙人",
       Keyboard: "キーボード",
-      Cupcake: "カップケーキ"
+      Cupcake: "カップケーキ",
+      Gamepad: "ゲームパッド",
+      Phone: "電話"
     }
   },
   zh: {
@@ -1781,7 +1881,10 @@ const i18nThemeMap = {
       Wave: "挥手",
       Pout: "噘嘴",
       Sunglasses: "墨镜",
-      Run: "奔跑"
+      Run: "奔跑",
+      Smug: "得意",
+      Tired: "疲惫",
+      Blush: "脸红"
     },
     "Aesthetic Symbols": {
       Hearts: "爱心",
@@ -1806,7 +1909,9 @@ const i18nThemeMap = {
       Bows: "蝴蝶结",
       "Color Triangles": "彩色三角",
       "Pastel Mood": "粉彩氛围",
-      "Cute Sparks": "可爱闪烁"
+      "Cute Sparks": "可爱闪烁",
+      Waves: "波纹",
+      "Minimal Lines": "极简线条"
     },
     "ASCII Art": {
       Cat: "猫",
@@ -1832,7 +1937,9 @@ const i18nThemeMap = {
       Plane: "飞机",
       Alien: "外星人",
       Keyboard: "键盘",
-      Cupcake: "杯子蛋糕"
+      Cupcake: "杯子蛋糕",
+      Gamepad: "手柄",
+      Phone: "电话"
     }
   },
   es: {
@@ -1873,7 +1980,10 @@ const i18nThemeMap = {
       Wave: "Saludar",
       Pout: "Puchero",
       Sunglasses: "Gafas de sol",
-      Run: "Correr"
+      Run: "Correr",
+      Smug: "Altanero",
+      Tired: "Cansado",
+      Blush: "Sonrojo"
     },
     "Aesthetic Symbols": {
       Hearts: "Corazones",
@@ -1898,7 +2008,9 @@ const i18nThemeMap = {
       Bows: "Lazos",
       "Color Triangles": "Triángulos de color",
       "Pastel Mood": "Ambiente pastel",
-      "Cute Sparks": "Destellos lindos"
+      "Cute Sparks": "Destellos lindos",
+      Waves: "Olas",
+      "Minimal Lines": "Líneas mínimas"
     },
     "ASCII Art": {
       Cat: "Gato",
@@ -1924,7 +2036,9 @@ const i18nThemeMap = {
       Plane: "Avión",
       Alien: "Alienígena",
       Keyboard: "Teclado",
-      Cupcake: "Cupcake"
+      Cupcake: "Cupcake",
+      Gamepad: "Mando",
+      Phone: "Teléfono"
     }
   }
 };
@@ -1940,6 +2054,8 @@ const i18nKitchenCategoryMap = {
     nature: "자연",
     travel: "여행",
     objects: "사물",
+    sports: "스포츠",
+    celebration: "축하",
     symbols: "기호"
   },
   ja: {
@@ -1952,6 +2068,8 @@ const i18nKitchenCategoryMap = {
     nature: "自然",
     travel: "旅行",
     objects: "物",
+    sports: "スポーツ",
+    celebration: "お祝い",
     symbols: "記号"
   },
   zh: {
@@ -1964,6 +2082,8 @@ const i18nKitchenCategoryMap = {
     nature: "自然",
     travel: "旅行",
     objects: "物品",
+    sports: "运动",
+    celebration: "庆祝",
     symbols: "符号"
   },
   es: {
@@ -1976,6 +2096,8 @@ const i18nKitchenCategoryMap = {
     nature: "Naturaleza",
     travel: "Viajes",
     objects: "Objetos",
+    sports: "Deportes",
+    celebration: "Celebración",
     symbols: "Símbolos"
   }
 };
@@ -2360,7 +2482,8 @@ function buildKitchenUrl(emojiA, emojiB) {
 const kitchenSuggestionPool = [
   "😀", "🥰", "😎", "🥳", "😭", "😡", "🤩", "😴", "✨", "💖",
   "🔥", "🌈", "⭐", "🌸", "🍕", "🍔", "🎉", "💯", "🐶", "🐱",
-  "⚡", "🌙", "💫", "🪩", "🍓", "🧁", "🎨", "🎵", "⚽", "🏀"
+  "⚡", "🌙", "💫", "🪩", "🍓", "🧁", "🎨", "🎵", "⚽", "🏀",
+  "🏆", "🎁", "🎂", "🪄", "🛹", "🌊", "🚀", "🧠", "🥂", "🎈"
 ];
 
 function renderKitchenSuggestions() {
