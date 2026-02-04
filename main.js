@@ -2018,7 +2018,7 @@ const i18nSymbolBlockMap = {
 function createTab(label, isActive, onClick) {
   const link = document.createElement("a");
   link.className = "tab" + (isActive ? " active" : "");
-  link.href = "#resultGrid";
+  link.href = "#filtersStart";
   link.textContent = label;
   if (isActive) {
     link.setAttribute("aria-current", "page");

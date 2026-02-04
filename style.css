@@ -151,6 +151,10 @@ body.theme-dark {
   align-items: start;
 }
 
+#filtersStart {
+  scroll-margin-top: 16px;
+}
+
 .filters {
   position: sticky;
   top: 18px;
