@@ -211,6 +211,27 @@ body.theme-dark {
   min-height: 320px;
 }
 
+.seo-block {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 10px;
+}
+
+.seo-block h2 {
+  font-size: 18px;
+}
+
+.seo-block p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 13px;
+}
+
 .to-top {
   padding: 10px 14px;
   border-radius: 12px;
